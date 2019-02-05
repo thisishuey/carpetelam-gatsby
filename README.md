@@ -91,8 +91,6 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/thisishuey/carpetelam-gatsby)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f1e5c8a2-b889-4d22-9a3d-7baebdc6fe94/deploy-status)](https://app.netlify.com/sites/carpetelam/deploys)
+This site is being deployed with Netlify: [![Netlify Status](https://api.netlify.com/api/v1/badges/b2c859fe-ed96-491c-876b-d48a5d90951a/deploy-status)](https://app.netlify.com/sites/carpetelam/deploys)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
