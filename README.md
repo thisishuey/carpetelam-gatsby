@@ -8,8 +8,6 @@
   Gatsby's default starter
 </h1>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f1e5c8a2-b889-4d22-9a3d-7baebdc6fe94/deploy-status)](https://app.netlify.com/sites/carpetelam/deploys)
-
 Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
@@ -93,6 +91,8 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/thisishuey/carpetelam-gatsby)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f1e5c8a2-b889-4d22-9a3d-7baebdc6fe94/deploy-status)](https://app.netlify.com/sites/carpetelam/deploys)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
