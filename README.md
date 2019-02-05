@@ -4,9 +4,7 @@
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
   </a>
 </p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+<h1 align="center">Carpe Telam Gatsby Site</h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b2c859fe-ed96-491c-876b-d48a5d90951a/deploy-status)](https://app.netlify.com/sites/carpetelam/deploys)
 
