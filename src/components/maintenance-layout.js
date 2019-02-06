@@ -2,13 +2,12 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
-import Header from "./header";
-import "./layout.css";
+import "./maintenance-layout.css";
 
-const Layout = ({ children }) => (
+const MaintenanceLayout = ({ children }) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
+      query MaintenanceTitleQuery {
         site {
           siteMetadata {
             title
@@ -18,19 +17,17 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <Fragment>
-        <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
-            margin: "0 auto",
+            margin: "5rem auto 0 auto",
             maxWidth: 960,
             padding: "0px 1.0875rem 1.45rem",
             paddingTop: 0
           }}
         >
           <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with{" "}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <footer style={{ textAlign: "center" }}>
+            <h6>© {new Date().getFullYear()}, Carpe Telam, LLC</h6>
           </footer>
         </div>
       </Fragment>
@@ -38,8 +35,8 @@ const Layout = ({ children }) => (
   />
 );
 
-Layout.propTypes = {
+MaintenanceLayout.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export default Layout;
+export default MaintenanceLayout;
