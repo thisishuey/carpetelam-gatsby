@@ -35,7 +35,7 @@ const Background = () => (
           left: 0,
           right: 0,
           bottom: 0,
-          opacity: 0.3,
+          opacity: 0.5,
           zIndex: -10
         }}
       />
