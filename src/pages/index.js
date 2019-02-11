@@ -16,7 +16,8 @@ const IndexPage = () => (
         "application",
         "react",
         "javascript",
-        "graphql"
+        "graphql",
+        "wordpress"
       ]}
     />
     <Background />
