@@ -4,7 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "Carpe Telam - Seize the Web",
+    title: "Carpe Telam",
+    subtitle: "Seize the Web",
     description:
       "At Carpe Telam we aim to Seize the Web with quality and speed!",
     author: 'Jeff "Huey" Huelsbeck'
