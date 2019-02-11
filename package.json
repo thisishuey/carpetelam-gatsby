@@ -12,6 +12,7 @@
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sharp": "^2.0.20",
     "gatsby-source-filesystem": "^2.0.20",
+    "gatsby-source-wordpress": "^3.0.33",
     "gatsby-transformer-sharp": "^2.1.13",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
@@ -35,5 +36,9 @@
   },
   "bugs": {
     "url": "https://github.com/thisishuey/carpetelam-gatsby/issues"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-gatsby-standard": "^2.1.1"
   }
 }

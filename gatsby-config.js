@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
 module.exports = {
   siteMetadata: {
     title: "Carpe Telam - Seize the Web",
@@ -26,6 +30,25 @@ module.exports = {
         theme_color: "#663399",
         display: "minimal-ui",
         icon: "src/images/ipsum.png" // This path is relative to the root of the site.
+      }
+    },
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        baseUrl: "carpetelam-com.carpetelam.net",
+        protocol: "https",
+        hostingWPCOM: false,
+        verboseOutput: false,
+        searchAndReplaceContentUrls: {
+          sourceUrl: "https://carpetelam-com.carpetelam.net",
+          replacementUrl: "https://www.carpetelam.com"
+        },
+        excludedRoutes: [
+          "/ithemes-security/**",
+          "**/*/*/users/me",
+          "**/*/*/settings",
+          "**/*/*/themes"
+        ]
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
