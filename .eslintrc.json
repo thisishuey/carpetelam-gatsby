@@ -1,3 +1,5 @@
 {
-  "extends": "gatsby-standard"
+  "extends": ["gatsby-standard"],
+  "plugins": ["react-hooks"],
+  "rules": { "react-hooks/rules-of-hooks": "error" }
 }
