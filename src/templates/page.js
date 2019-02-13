@@ -1,15 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 
-const Page = props => {
-  const { content, title } = props.data.wordpressPage;
+import Layout from "../components/layout.js";
+
+function Page({ content, date, title }) {
   return (
-    <Fragment>
+    <Layout>
       <h1 dangerouslySetInnerHTML={{ __html: title }} />
       <div dangerouslySetInnerHTML={{ __html: content }} />
-    </Fragment>
+      <p dangerouslySetInnerHTML={{ __html: date }} />
+    </Layout>
   );
-};
+}
 
 export default Page;
 
