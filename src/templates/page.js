@@ -1,18 +1,15 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import { graphql } from "gatsby";
 
-class Page extends Component {
-  render() {
-    const currentPage = this.props.data.wordpressPage;
-
-    return (
-      <Fragment>
-        <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
-        <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
-      </Fragment>
-    );
-  }
-}
+const Page = props => {
+  const { content, title } = props.data.wordpressPage;
+  return (
+    <Fragment>
+      <h1 dangerouslySetInnerHTML={{ __html: title }} />
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+    </Fragment>
+  );
+};
 
 export default Page;
 
