@@ -6,6 +6,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Typography from "@material-ui/core/Typography";
 
 import Header from "./header";
+import withRoot from "../utils/withRoot";
 
 function styles(theme) {
   return createStyles({
@@ -70,4 +71,4 @@ Layout.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(styles)(Layout);
+export default withRoot(withStyles(styles)(Layout));

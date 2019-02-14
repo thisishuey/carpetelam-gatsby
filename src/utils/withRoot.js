@@ -1,38 +1,37 @@
-import React from "react";
-import { create } from "jss";
-import JssProvider from "react-jss/lib/JssProvider";
-import createGenerateClassName from "@material-ui/core/styles/createGenerateClassName";
-import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-import jssPreset from "@material-ui/core/styles/jssPreset";
-import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
+import React, { Component } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import JssProvider from "react-jss/lib/JssProvider";
+import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 
-const theme = createMuiTheme({
-  palette: {
-    type: "light"
-  },
-  typography: {
-    useNextVariants: true
-  }
-});
+import getPageContext from "./getPageContext";
 
-const jss = create(jssPreset());
-const generateClassName = createGenerateClassName;
-
-function getDisplayName(Component) {
-  return Component.displayName || Component.name || "Component";
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || "Component";
 }
 
 export default function withRoot(WrappedComponent) {
-  function WithRoot(props) {
-    return (
-      <JssProvider jss={jss} generateClassName={generateClassName}>
-        <MuiThemeProvider theme={theme}>
-          <CssBaseline />
-          <WrappedComponent {...props} />
-        </MuiThemeProvider>
-      </JssProvider>
-    );
+  class WithRoot extends Component {
+    constructor(props) {
+      super(props);
+      this.muiPageContext = getPageContext();
+    }
+    componentDidMount() {
+      const jssStyles = document.querySelector("#jss-server-side");
+      if (jssStyles && jssStyles.parentNode) {
+        jssStyles.parentNode.removeChild(jssStyles);
+      }
+    }
+    render() {
+      const { generateClassName, sheetsManager, theme } = this.muiPageContext;
+      return (
+        <JssProvider generateClassName={generateClassName}>
+          <MuiThemeProvider sheetsManager={sheetsManager} theme={theme}>
+            <CssBaseline />
+            <WrappedComponent {...this.props} />
+          </MuiThemeProvider>
+        </JssProvider>
+      );
+    }
   }
   WithRoot.displayName = `WithRoot(${getDisplayName(WrappedComponent)})`;
   return WithRoot;
