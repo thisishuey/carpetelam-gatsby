@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import Background from "../components/background";
+import Background from "../components/Background";
 import Logo from "../components/logo";
 import SEO from "../components/seo";
 
