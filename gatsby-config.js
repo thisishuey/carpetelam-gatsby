@@ -41,8 +41,8 @@ module.exports = {
         hostingWPCOM: false,
         verboseOutput: false,
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://carpetelam-com.carpetelam.net",
-          replacementUrl: "https://www.carpetelam.com"
+          sourceUrl: "https://carpetelam-com.carpetelam.net/",
+          replacementUrl: "/"
         },
         excludedRoutes: [
           "/ithemes-security/**",
