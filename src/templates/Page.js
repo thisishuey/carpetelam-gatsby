@@ -4,6 +4,16 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout.js";
 import SEO from "../components/SEO.js";
 
+export const GetWordPressPageByID = graphql`
+  query GetWordPressPageByID($id: String!) {
+    wordpressPage(id: { eq: $id }) {
+      title
+      content
+      date(formatString: "MMMM DD, YYYY")
+    }
+  }
+`;
+
 function Page({ data }) {
   const { content, date, title } = data.wordpressPage;
   return (
@@ -17,13 +27,3 @@ function Page({ data }) {
 }
 
 export default Page;
-
-export const GetWordPressPageByID = graphql`
-  query GetWordPressPageByID($id: String!) {
-    wordpressPage(id: { eq: $id }) {
-      title
-      content
-      date(formatString: "MMMM DD, YYYY")
-    }
-  }
-`;
