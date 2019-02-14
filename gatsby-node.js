@@ -25,7 +25,7 @@ exports.createPages = ({ actions, graphql }) => {
           console.log(result.errors);
           reject(result.errors);
         }
-        const pageTemplate = path.resolve("./src/templates/page.js");
+        const pageTemplate = path.resolve("./src/templates/Page.js");
         _.each(result.data.allWordpressPage.edges, ({ node }) => {
           const pagePath = node.slug !== "home" ? `/${node.slug}/` : "/";
           return createPage({
