@@ -3,7 +3,8 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/layout.js";
 
-function Page({ content, date, title }) {
+function Page({ data }) {
+  const { content, date, title } = data.wordpressPage;
   return (
     <Layout>
       <h1 dangerouslySetInnerHTML={{ __html: title }} />
