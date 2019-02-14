@@ -1,7 +1,29 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+const React = require("react");
+const { renderToString } = require("react-dom/server");
+const JssProvider = require("react-jss/lib/JssProvider").default;
 
-// You can delete this file if you're not using it
+const getPageContext = require("./src/utils/getPageContext").default;
+
+function replaceRenderer({
+  bodyComponent,
+  replaceBodyHTMLString,
+  setHeadComponents
+}) {
+  const { sheetsRegistry } = getPageContext();
+
+  const bodyHTML = renderToString(
+    <JssProvider registry={sheetsRegistry}>{bodyComponent}</JssProvider>
+  );
+
+  replaceBodyHTMLString(bodyHTML);
+  setHeadComponents([
+    <style
+      type="text/css"
+      id="jss-server-side"
+      key="jss-server-side"
+      dangerouslySetInnerHTML={{ __html: sheetsRegistry.toString() }}
+    />
+  ]);
+}
+
+exports.replaceRenderer = replaceRenderer;

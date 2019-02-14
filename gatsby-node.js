@@ -28,12 +28,12 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
         const pageTemplate = path.resolve("./src/templates/page.js");
-        _.each(result.data.allWordpressPage.edges, edge => {
+        _.each(result.data.allWordpressPage.edges, ({ node }) => {
           createPage({
-            path: `/${edge.node.slug}/`,
+            path: `/${node.slug}/`,
             component: slash(pageTemplate),
             context: {
-              id: edge.node.id
+              id: node.id
             }
           });
         });
