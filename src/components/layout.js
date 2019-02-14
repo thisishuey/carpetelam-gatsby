@@ -10,18 +10,7 @@ import withRoot from "../utils/withRoot";
 
 function styles(theme) {
   return createStyles({
-    main: {
-      width: "auto",
-      marginLeft: theme.spacing.unit * 2,
-      marginRight: theme.spacing.unit * 2,
-      paddingTop: theme.spacing.unit * 8,
-      [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-        width: 900,
-        marginLeft: "auto",
-        marginRight: "auto"
-      }
-    },
-    footer: {
+    centerContent: {
       width: "auto",
       marginLeft: theme.spacing.unit * 2,
       marginRight: theme.spacing.unit * 2,
@@ -35,6 +24,7 @@ function styles(theme) {
 }
 
 function Layout({ children, classes }) {
+  const { centerContent } = classes;
   return (
     <StaticQuery
       query={graphql`
@@ -49,11 +39,15 @@ function Layout({ children, classes }) {
       render={({ site }) => (
         <Fragment>
           <Header siteTitle={site.siteMetadata.title} />
-          <Typography className={classes.main} color="inherit" component="main">
+          <Typography
+            className={centerContent}
+            color="inherit"
+            component="main"
+          >
             {children}
           </Typography>
           <Typography
-            className={classes.footer}
+            className={centerContent}
             color="inherit"
             component="footer"
           >

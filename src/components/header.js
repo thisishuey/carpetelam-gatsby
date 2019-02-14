@@ -21,7 +21,7 @@ function Header({ classes, siteTitle }) {
     return <Link to="/" {...props} />;
   }
   return (
-    <AppBar>
+    <AppBar position="sticky">
       <Toolbar>
         <Typography
           className={classes.brand}
