@@ -5,7 +5,7 @@ import createStyles from "@material-ui/core/styles/createStyles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Typography from "@material-ui/core/Typography";
 
-import Header from "./header";
+import Header from "./Header";
 import withRoot from "../utils/withRoot";
 
 function styles(theme) {

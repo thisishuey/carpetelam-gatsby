@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../components/layout.js";
+import Layout from "../components/Layout.js";
 
 function Page({ data }) {
   const { content, date, title } = data.wordpressPage;

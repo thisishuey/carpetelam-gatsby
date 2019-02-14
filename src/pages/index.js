@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 
 import Background from "../components/Background";
-import Logo from "../components/logo";
-import SEO from "../components/seo";
+import Logo from "../components/Logo";
+import SEO from "../components/SEO";
 
 function IndexPage() {
   return (
