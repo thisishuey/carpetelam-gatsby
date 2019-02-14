@@ -3,25 +3,23 @@ const Promise = require("bluebird");
 const path = require("path");
 const slash = require("slash");
 
-const pagesQuery = `
-  {
+const GetWordPressPages = `
+  query GetWordPressPages {
     allWordpressPage {
       edges {
         node {
           id
           slug
-          status
-          template
         }
       }
     }
   }
 `;
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
-    graphql(pagesQuery)
+    graphql(GetWordPressPages)
       .then(result => {
         if (result.errors) {
           console.log(result.errors);
@@ -29,8 +27,9 @@ exports.createPages = ({ graphql, actions }) => {
         }
         const pageTemplate = path.resolve("./src/templates/page.js");
         _.each(result.data.allWordpressPage.edges, ({ node }) => {
-          createPage({
-            path: `/${node.slug}/`,
+          const pagePath = node.slug !== "home" ? `/${node.slug}/` : "/";
+          return createPage({
+            path: pagePath,
             component: slash(pageTemplate),
             context: {
               id: node.id
