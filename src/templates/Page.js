@@ -4,8 +4,8 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout.js";
 import SEO from "../components/SEO.js";
 
-export const GetWordPressPageByID = graphql`
-  query GetWordPressPageByID($id: String!) {
+export const query = graphql`
+  query($id: String!) {
     wordpressPage(id: { eq: $id }) {
       title
       content

@@ -26,37 +26,16 @@ function styles(theme) {
 function Layout({ children, classes }) {
   const { centerContent } = classes;
   return (
-    <StaticQuery
-      query={graphql`
-        query SiteTitleQuery {
-          site {
-            siteMetadata {
-              title
-            }
-          }
-        }
-      `}
-      render={({ site }) => (
-        <Fragment>
-          <Header siteTitle={site.siteMetadata.title} />
-          <Typography
-            className={centerContent}
-            color="inherit"
-            component="main"
-          >
-            {children}
-          </Typography>
-          <Typography
-            className={centerContent}
-            color="inherit"
-            component="footer"
-          >
-            © {new Date().getFullYear()}, Built with{" "}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </Typography>
-        </Fragment>
-      )}
-    />
+    <Fragment>
+      <Header />
+      <Typography className={centerContent} color="inherit" component="main">
+        {children}
+      </Typography>
+      <Typography className={centerContent} color="inherit" component="footer">
+        © {new Date().getFullYear()}, Built with{" "}
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      </Typography>
+    </Fragment>
   );
 }
 
