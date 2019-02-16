@@ -26,16 +26,55 @@ function styles(theme) {
 function Layout({ children, classes }) {
   const { centerContent } = classes;
   return (
-    <Fragment>
-      <Header />
-      <Typography className={centerContent} color="inherit" component="main">
-        {children}
-      </Typography>
-      <Typography className={centerContent} color="inherit" component="footer">
-        © {new Date().getFullYear()}, Built with{" "}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </Typography>
-    </Fragment>
+    <StaticQuery
+      query={graphql`
+        query {
+          site {
+            siteMetadata {
+              title
+            }
+          }
+          allWordpressWpApiMenusMenusItems(
+            filter: { slug: { eq: "primary" } }
+          ) {
+            edges {
+              node {
+                items {
+                  object_id
+                  order
+                  title
+                  url
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={({ allWordpressWpApiMenusMenusItems: menus, site }) => {
+        const { items } = menus.edges[0].node;
+        const { title } = site.siteMetadata;
+        return (
+          <Fragment>
+            <Header navItems={items} siteTitle={title} />
+            <Typography
+              className={centerContent}
+              color="inherit"
+              component="main"
+            >
+              {children}
+            </Typography>
+            <Typography
+              className={centerContent}
+              color="inherit"
+              component="footer"
+            >
+              © {new Date().getFullYear()}, Built with{" "}
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </Typography>
+          </Fragment>
+        );
+      }}
+    />
   );
 }
 

@@ -4,18 +4,6 @@ import Img from "gatsby-image";
 import createStyles from "@material-ui/core/styles/createStyles";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-const query = graphql`
-  query {
-    placeholderImage: file(relativePath: { eq: "screenshot.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 3000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
-
 function styles(theme) {
   return createStyles({
     backgroundImage: {
@@ -33,7 +21,17 @@ function Background({ classes }) {
   const { backgroundImage } = classes;
   return (
     <StaticQuery
-      query={query}
+      query={graphql`
+        query {
+          placeholderImage: file(relativePath: { eq: "screenshot.png" }) {
+            childImageSharp {
+              fluid(maxWidth: 3000) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      `}
       render={({ placeholderImage }) => (
         <Img
           fluid={placeholderImage.childImageSharp.fluid}
