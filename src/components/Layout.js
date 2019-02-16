@@ -68,8 +68,23 @@ function Layout({ children, classes }) {
               color="inherit"
               component="footer"
             >
-              © {new Date().getFullYear()}, Built with{" "}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
+              © {new Date().getFullYear()}, Carpe Telam, LLC. Headless CMS
+              powered by{" "}
+              <a
+                href="https://wordpress.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WordPress
+              </a>{" "}
+              Static HTML built with{" "}
+              <a
+                href="https://www.gatsbyjs.org"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Gatsby
+              </a>
             </Typography>
           </Fragment>
         );
