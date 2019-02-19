@@ -55,6 +55,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
+  navItems: [],
   siteTitle: ""
 };
 
