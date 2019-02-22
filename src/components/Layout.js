@@ -55,7 +55,7 @@ function Layout({ children, classes }) {
         const { title } = site.siteMetadata;
         return (
           <Fragment>
-            <Header navItems={items} siteTitle={title} />
+            <Header brand={title} links={items} />
             <Typography
               className={centerContent}
               color="inherit"
