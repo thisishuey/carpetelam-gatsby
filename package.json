@@ -27,7 +27,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "yarn && npx gatsby build",
+    "build": "npx gatsby build",
     "develop": "npx gatsby develop -H 0.0.0.0 -p 3000",
     "start": "npm run develop",
     "serve": "npx gatsby serve",
@@ -41,6 +41,7 @@
     "url": "https://github.com/thisishuey/carpetelam-gatsby/issues"
   },
   "devDependencies": {
+    "core-js": "^2.6.5",
     "eslint": "^5.13.0",
     "eslint-config-gatsby-standard": "^2.1.1",
     "eslint-plugin-react-hooks": "^1.0.1"
