@@ -22,13 +22,8 @@ function styles(theme) {
     },
     centerContent: {
       width: "auto",
-      marginLeft: theme.spacing.unit * 2,
-      marginRight: theme.spacing.unit * 2,
-      [theme.breakpoints.up(950 + theme.spacing.unit * 3 * 2)]: {
-        width: 950,
-        marginLeft: "auto",
-        marginRight: "auto"
-      }
+      marginLeft: theme.spacing.unit * 3,
+      marginRight: theme.spacing.unit * 3
     },
     list: {
       width: 250
@@ -48,7 +43,7 @@ function styles(theme) {
   });
 }
 
-function Header({ brand, classes, links }) {
+function Header({ brand, classes, links, tagline }) {
   const [open, setOpen] = useState(false);
   const mobileMenu = (
     <List className={classes.list}>
@@ -73,7 +68,7 @@ function Header({ brand, classes, links }) {
           to="/"
           variant="h6"
         >
-          {brand}
+          {brand} &mdash; {tagline}
         </Typography>
         <div className={classes.sectionDesktop}>
           {links.map(({ object_id: key, title, url }) => {
@@ -107,7 +102,8 @@ function Header({ brand, classes, links }) {
 Header.propTypes = {
   brand: PropTypes.string,
   classes: PropTypes.object,
-  links: PropTypes.array
+  links: PropTypes.array,
+  tagline: PropTypes.string
 };
 
 Header.defaultProps = {

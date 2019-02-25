@@ -8,7 +8,9 @@ module.exports = {
     subtitle: "Seize the Web",
     description:
       "At Carpe Telam we aim to Seize the Web with quality and speed!",
-    author: 'Jeff "Huey" Huelsbeck'
+    author: 'Jeff "Huey" Huelsbeck',
+    email: "huey@carpetelam.com",
+    company: "Carpe Telam, LLC"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
