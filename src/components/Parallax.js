@@ -7,17 +7,33 @@ function styles(theme) {
   return createStyles({
     parallax: {
       alignItems: "center",
-      backgroundColor: "#222",
       backgroundPosition: "50%",
       backgroundSize: "cover",
       color: "white",
       display: "flex",
       height: "65vh",
       justifyContent: "center",
-      maxHeight: "1600px",
+      maxHeight: "650px",
+      minHeight: "65vh",
       position: "relative",
       textAlign: "center",
-      zIndex: -1
+      zIndex: -2,
+      "&:before": {
+        background: "rgba(34, 34, 34, 0.75)"
+      },
+      "&:after": {
+        background: "rgba(34, 34, 34, 0.75)"
+      },
+      "&:after, &:before": {
+        content: "''",
+        display: "block",
+        height: "100%",
+        left: 0,
+        position: "absolute",
+        top: 0,
+        width: "100%",
+        zIndex: -1
+      }
     }
   });
 }

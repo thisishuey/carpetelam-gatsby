@@ -40,10 +40,6 @@ function Page({ classes, data }) {
         </div>
       </Parallax>
       <Paper className={main}>
-        <pre>
-          {featuredMedia &&
-            JSON.stringify(featuredMedia.localFile.childImageSharp, null, 2)}
-        </pre>
         <Typography
           color="inherit"
           component="main"
