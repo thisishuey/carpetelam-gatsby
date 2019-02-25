@@ -20,6 +20,16 @@ function styles(theme) {
       flexGrow: 1,
       textDecoration: "none"
     },
+    centerContent: {
+      width: "auto",
+      marginLeft: theme.spacing.unit * 2,
+      marginRight: theme.spacing.unit * 2,
+      [theme.breakpoints.up(950 + theme.spacing.unit * 3 * 2)]: {
+        width: 950,
+        marginLeft: "auto",
+        marginRight: "auto"
+      }
+    },
     list: {
       width: 250
     },
@@ -55,7 +65,7 @@ function Header({ brand, classes, links }) {
   );
   return (
     <AppBar position="sticky">
-      <Toolbar>
+      <Toolbar className={classes.centerContent}>
         <Typography
           className={classes.brand}
           color="inherit"
