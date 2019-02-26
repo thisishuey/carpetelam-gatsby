@@ -13,10 +13,14 @@ import withRoot from "../utils/withRoot";
 function styles(theme) {
   return createStyles({
     main: {
-      margin: theme.spacing.unit * 3,
-      marginTop: theme.spacing.unit * -6,
-      padding: theme.spacing.unit * 3,
-      width: "auto"
+      margin: theme.spacing.unit * 2,
+      marginTop: theme.spacing.unit * -4,
+      padding: theme.spacing.unit * 2,
+      [theme.breakpoints.up("md")]: {
+        margin: theme.spacing.unit * 4,
+        marginTop: theme.spacing.unit * -8,
+        padding: theme.spacing.unit * 12
+      }
     }
   });
 }

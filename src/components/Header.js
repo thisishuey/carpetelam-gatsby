@@ -18,8 +18,12 @@ function styles(theme) {
   return createStyles({
     centerContent: {
       width: "auto",
-      marginLeft: theme.spacing.unit * 3,
-      marginRight: theme.spacing.unit * 3
+      marginLeft: theme.spacing.unit,
+      marginRight: theme.spacing.unit,
+      [theme.breakpoints.up("md")]: {
+        marginLeft: theme.spacing.unit * 12,
+        marginRight: theme.spacing.unit * 12
+      }
     },
     logo: {
       flexGrow: 1,
