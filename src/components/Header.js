@@ -16,6 +16,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 function styles(theme) {
   return createStyles({
+    jss1: {}, // TODO: fix this hack
     centerContent: {
       width: "auto",
       marginLeft: theme.spacing.unit * 3,
