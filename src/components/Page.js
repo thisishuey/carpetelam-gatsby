@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Layout from "./Layout.js";
 import Parallax from "./Parallax.js";
 import SEO from "./SEO.js";
+import withRoot from "../utils/withRoot";
 
 function styles(theme) {
   return createStyles({
@@ -55,4 +56,4 @@ Page.propTypes = {
   pageData: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Page);
+export default withRoot(withStyles(styles)(Page));
