@@ -38,14 +38,14 @@ function Page({ classes, pageData }) {
           color="inherit"
           component="h2"
           dangerouslySetInnerHTML={{ __html: title }}
-          variant="body1"
+          variant="subtitle1"
         />
       </Parallax>
       <Typography
         className={main}
-        color="inherit"
         component={Paper}
         dangerouslySetInnerHTML={{ __html: content }}
+        variant="body1"
       />
     </Layout>
   );
