@@ -14,11 +14,10 @@ function styles(theme) {
   return createStyles({
     main: {
       margin: theme.spacing.unit * 2,
-      marginTop: theme.spacing.unit * -4,
+      marginTop: theme.spacing.unit * -8,
       padding: theme.spacing.unit * 2,
       [theme.breakpoints.up("md")]: {
         margin: theme.spacing.unit * 4,
-        marginTop: theme.spacing.unit * -8,
         padding: theme.spacing.unit * 12
       }
     }
