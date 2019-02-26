@@ -18,6 +18,7 @@ function styles(theme) {
       padding: theme.spacing.unit * 2,
       [theme.breakpoints.up("md")]: {
         margin: theme.spacing.unit * 4,
+        marginTop: theme.spacing.unit * -8,
         padding: theme.spacing.unit * 12
       }
     }
@@ -25,24 +26,27 @@ function styles(theme) {
 }
 
 function Page({ classes, pageData }) {
-  const { main } = classes;
-  const { content, featuredMediaSrc, title } = pageData;
+  const { header, main } = classes;
+  const { acf, content, featuredMediaSrc, title } = pageData;
+  const { pageSubtitle, pageTitle } = acf;
   return (
     <Layout>
       <SEO title={title} />
       <Parallax image={featuredMediaSrc}>
-        <Typography
-          color="inherit"
-          component="h1"
-          dangerouslySetInnerHTML={{ __html: title }}
-          variant="h3"
-        />
-        <Typography
-          color="inherit"
-          component="h2"
-          dangerouslySetInnerHTML={{ __html: title }}
-          variant="subtitle1"
-        />
+        <div className={header}>
+          <Typography
+            color="inherit"
+            component="h1"
+            dangerouslySetInnerHTML={{ __html: pageTitle || title }}
+            variant="h3"
+          />
+          <Typography
+            color="inherit"
+            component="h2"
+            dangerouslySetInnerHTML={{ __html: pageSubtitle }}
+            variant="subtitle1"
+          />
+        </div>
       </Parallax>
       <Typography
         className={main}
@@ -56,7 +60,7 @@ function Page({ classes, pageData }) {
 
 Page.propTypes = {
   classes: PropTypes.object,
-  pageData: PropTypes.object.isRequired
+  pageData: PropTypes.object.isRequired // TODO: add shape to pageData
 };
 
 export default withRoot(withStyles(styles)(Page));

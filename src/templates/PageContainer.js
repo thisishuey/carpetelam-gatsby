@@ -24,6 +24,10 @@ export default PageContainer;
 export const query = graphql`
   query($id: String!) {
     wordpressPage(id: { eq: $id }) {
+      acf {
+        pageTitle
+        pageSubtitle
+      }
       content
       featured_media {
         localFile {
