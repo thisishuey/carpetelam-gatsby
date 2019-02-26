@@ -41,13 +41,11 @@ function styles(theme) {
 function useScroll() {
   const [transform, setTransform] = useState(`translate3d(0, 0, 0)`);
   useEffect(() => {
-    if (window.innerWidth >= 768) {
-      const resetTransform = () =>
-        setTransform(`translate3d(0, ${window.pageYOffset / 3}px, 0)`);
-      resetTransform();
-      window.addEventListener("scroll", resetTransform);
-      return () => window.removeEventListener("scroll", resetTransform);
-    }
+    const resetTransform = () =>
+      setTransform(`translate3d(0, ${window.pageYOffset / 3}px, 0)`);
+    resetTransform();
+    window.addEventListener("scroll", resetTransform);
+    return () => window.removeEventListener("scroll", resetTransform);
   });
   return transform;
 }
@@ -60,7 +58,10 @@ function Parallax({ children, classes, image }) {
     <div
       className={parallax}
       ref={parallaxRef}
-      style={{ backgroundImage: `url(${image})`, transform }}
+      style={{
+        backgroundImage: `filter(url(${image}), blur(3px))`,
+        transform
+      }}
     >
       {children}
     </div>
