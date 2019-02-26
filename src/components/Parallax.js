@@ -59,7 +59,7 @@ function Parallax({ children, classes, image }) {
       className={parallax}
       ref={parallaxRef}
       style={{
-        backgroundImage: `filter(url(${image}), blur(3px))`,
+        backgroundImage: `url(${image})`,
         transform
       }}
     >
