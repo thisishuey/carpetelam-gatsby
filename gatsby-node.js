@@ -24,11 +24,11 @@ exports.createPages = ({ actions, graphql }) => {
         console.log(result.errors);
         reject(result.errors);
       }
-      const pageTemplate = path.resolve("./src/templates/Page.js");
+      const PageContainer = path.resolve("./src/templates/PageContainer.js");
       _.each(result.data.allWordpressPage.edges, ({ node }) => {
         return createPage({
           path: node.link,
-          component: slash(pageTemplate),
+          component: slash(PageContainer),
           context: {
             id: node.id
           }
