@@ -22,13 +22,11 @@ function styles(theme) {
 
 function Page({ classes, pageData }) {
   const { main } = classes;
-  const { content, featuredMedia, title } = pageData;
-  const featuredImageSrc =
-    featuredMedia && featuredMedia.localFile.childImageSharp.fluid.src;
+  const { content, featuredMediaSrc, title } = pageData;
   return (
     <Layout>
       <SEO title={title} />
-      <Parallax image={featuredImageSrc}>
+      <Parallax image={featuredMediaSrc}>
         <Typography
           color="inherit"
           component="h1"

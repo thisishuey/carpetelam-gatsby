@@ -9,7 +9,8 @@ function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || "Component";
 }
 
-export default function withRoot(WrappedComponent) {
+function withRoot(WrappedComponent) {
+  // TODO: convert to function
   class WithRoot extends Component {
     constructor(props) {
       super(props);
@@ -36,3 +37,5 @@ export default function withRoot(WrappedComponent) {
   WithRoot.displayName = `WithRoot(${getDisplayName(WrappedComponent)})`;
   return WithRoot;
 }
+
+export default withRoot;

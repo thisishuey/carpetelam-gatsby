@@ -16,16 +16,16 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 function styles(theme) {
   return createStyles({
-    brand: {
-      flexGrow: 1,
-      textDecoration: "none"
-    },
     centerContent: {
       width: "auto",
       marginLeft: theme.spacing.unit * 3,
       marginRight: theme.spacing.unit * 3
     },
-    list: {
+    logo: {
+      flexGrow: 1,
+      textDecoration: "none"
+    },
+    menuList: {
       width: 250
     },
     sectionDesktop: {
@@ -45,24 +45,18 @@ function styles(theme) {
 
 function Header({ brand, classes, links, tagline }) {
   const [open, setOpen] = useState(false);
-  const mobileMenu = (
-    <List className={classes.list}>
-      {links.map(({ object_id: key, title, url }) => {
-        return (
-          <li key={key}>
-            <ListItem button component={Link} to={url}>
-              <ListItemText primary={title} />
-            </ListItem>
-          </li>
-        );
-      })}
-    </List>
-  );
+  const {
+    centerContent,
+    logo,
+    menuList,
+    sectionDesktop,
+    sectionMobile
+  } = classes;
   return (
-    <AppBar position="sticky">
-      <Toolbar className={classes.centerContent}>
+    <AppBar color="secondary" position="sticky">
+      <Toolbar className={centerContent}>
         <Typography
-          className={classes.brand}
+          className={logo}
           color="inherit"
           component={Link}
           to="/"
@@ -70,7 +64,7 @@ function Header({ brand, classes, links, tagline }) {
         >
           {brand} &mdash; {tagline}
         </Typography>
-        <div className={classes.sectionDesktop}>
+        <div className={sectionDesktop}>
           {links.map(({ object_id: key, title, url }) => {
             return (
               <Button color="inherit" component={Link} key={key} to={url}>
@@ -79,7 +73,7 @@ function Header({ brand, classes, links, tagline }) {
             );
           })}
         </div>
-        <div className={classes.sectionMobile}>
+        <div className={sectionMobile}>
           <IconButton color="inherit" onClick={() => setOpen(true)}>
             <MenuIcon />
           </IconButton>
@@ -90,7 +84,17 @@ function Header({ brand, classes, links, tagline }) {
               onKeyDown={() => setOpen(false)}
               role="button"
             >
-              {mobileMenu}
+              <List className={menuList}>
+                {links.map(({ object_id: key, title, url }) => {
+                  return (
+                    <li key={key}>
+                      <ListItem button component={Link} to={url}>
+                        <ListItemText primary={title} />
+                      </ListItem>
+                    </li>
+                  );
+                })}
+              </List>
             </div>
           </Drawer>
         </div>

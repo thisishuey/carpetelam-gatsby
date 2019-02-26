@@ -5,10 +5,12 @@ import { graphql } from "gatsby";
 import Page from "../components/Page.js";
 
 function PageContainer({ data }) {
+  const featuredMedia = data.wordpressPage.featured_media;
   const pageData = {
     ...data.wordpressPage,
-    featuredMedia: data.wordpressPage.featured_media,
-    featured_media: undefined
+    featured_media: undefined,
+    featuredMediaSrc:
+      featuredMedia && featuredMedia.localFile.childImageSharp.fluid.src
   };
   return <Page pageData={pageData} />;
 }

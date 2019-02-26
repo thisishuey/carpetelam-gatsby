@@ -20,7 +20,6 @@ function Footer({ classes, company }) {
     <Typography className={footer} color="inherit" component="footer">
       © {new Date().getFullYear()}, {company}. Headless CMS powered by{" "}
       <Link
-        color="secondary"
         href="https://wordpress.org/"
         target="_blank"
         rel="noopener noreferrer"
@@ -29,7 +28,6 @@ function Footer({ classes, company }) {
       </Link>
       , Static HTML built with{" "}
       <Link
-        color="secondary"
         href="https://www.gatsbyjs.org"
         target="_blank"
         rel="noopener noreferrer"
