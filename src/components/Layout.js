@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from "gatsby";
 
 import Footer from "./Footer";
 import Header from "./Header";
-import withRoot from "../utils/withRoot";
 
 function Layout({ children, classes }) {
   return (
@@ -61,4 +60,4 @@ Layout.propTypes = {
   classes: PropTypes.object
 };
 
-export default withRoot(Layout);
+export default Layout;

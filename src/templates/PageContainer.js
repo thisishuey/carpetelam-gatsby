@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
 import Page from "../components/Page.js";
+import withRoot from "../utils/withRoot";
 
 function PageContainer({ data }) {
   const featuredMedia = data.wordpressPage.featured_media;
@@ -19,7 +20,7 @@ PageContainer.propTypes = {
   data: PropTypes.object.isRequired
 };
 
-export default PageContainer;
+export default withRoot(PageContainer);
 
 export const query = graphql`
   query($id: String!) {
