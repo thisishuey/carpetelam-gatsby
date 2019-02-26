@@ -32,7 +32,9 @@
     "develop": "npx gatsby develop -H 0.0.0.0 -p 3000",
     "start": "npm run develop",
     "serve": "npx gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "update-content-develop": "curl -X POST -d {} https://api.netlify.com/build_hooks/5c758ca0ae3233c8f615dd86",
+    "update-content-master": "curl -X POST -d {} https://api.netlify.com/build_hooks/5c758cb1ab13db161549cc6a"
   },
   "repository": {
     "type": "git",
