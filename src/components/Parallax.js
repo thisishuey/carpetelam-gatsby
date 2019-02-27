@@ -13,18 +13,17 @@ function styles(theme) {
       display: "flex",
       height: "65vh",
       justifyContent: "center",
+      padding: theme.spacing.unit * 2,
       maxHeight: "650px",
       minHeight: "65vh",
       position: "relative",
       textAlign: "center",
       zIndex: -2,
+      [theme.breakpoints.up("md")]: {
+        padding: theme.spacing.unit * 4
+      },
       "&:before": {
-        background: "rgba(34, 34, 34, 0.75)"
-      },
-      "&:after": {
-        background: "rgba(34, 34, 34, 0.75)"
-      },
-      "&:after, &:before": {
+        background: "rgba(33, 33, 33, 0.75)",
         content: "''",
         display: "block",
         height: "100%",

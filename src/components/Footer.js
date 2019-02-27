@@ -8,8 +8,11 @@ import Typography from "@material-ui/core/Typography";
 function styles(theme) {
   return createStyles({
     footer: {
-      margin: theme.spacing.unit * 3,
-      width: "auto"
+      margin: theme.spacing.unit * 2,
+      width: "auto",
+      [theme.breakpoints.up("md")]: {
+        margin: theme.spacing.unit * 4
+      }
     }
   });
 }
