@@ -4,7 +4,6 @@ import createStyles from "@material-ui/core/styles/createStyles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import blue from "@material-ui/core/colors/blue";
 
 import Layout from "./Layout.js";
 import Parallax from "./Parallax.js";
@@ -22,7 +21,7 @@ function styles(theme) {
         marginTop: theme.spacing.unit * -8,
         padding: theme.spacing.unit * 12
       },
-      "& a": { color: blue[800] }
+      "& a": { color: theme.palette.primary.main, textDecoration: "none" }
     }
   });
 }

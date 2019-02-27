@@ -6,7 +6,13 @@ import Typography from "@material-ui/core/Typography";
 
 function styles(theme) {
   return createStyles({
+    pageSubtitleStyle: {
+      ...theme.typography.subtitle1,
+      color: "inherit"
+    },
     pageTitleStyle: {
+      ...theme.typography.h3,
+      color: "inherit",
       fontFamily: "Roboto Slab",
       fontWeight: "bold"
     },
@@ -55,7 +61,7 @@ function useScroll() {
 }
 
 function Parallax({ backgroundImage, classes, pageSubtitle, pageTitle }) {
-  const { header, pageTitleStyle, parallax } = classes;
+  const { header, pageSubtitleStyle, pageTitleStyle, parallax } = classes;
   const parallaxRef = createRef();
   const transform = useScroll();
   return (
@@ -70,16 +76,13 @@ function Parallax({ backgroundImage, classes, pageSubtitle, pageTitle }) {
       <div className={header}>
         <Typography
           className={pageTitleStyle}
-          color="inherit"
           component="h1"
           dangerouslySetInnerHTML={{ __html: pageTitle }}
-          variant="h3"
         />
         <Typography
-          color="inherit"
+          className={pageSubtitleStyle}
           component="h2"
           dangerouslySetInnerHTML={{ __html: pageSubtitle }}
-          variant="subtitle1"
         />
       </div>
     </div>
