@@ -54,9 +54,33 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: "gatsby-plugin-prefetch-google-fonts",
+      options: {
+        fonts: [
+          {
+            family: "Roboto",
+            variants: [
+              "300",
+              "300i",
+              "400",
+              "400i",
+              "500",
+              "500i",
+              "700",
+              "700i"
+            ]
+          },
+          {
+            family: "Roboto Slab",
+            variants: ["300", "400", "700"]
+          }
+        ]
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
-    "gatsby-plugin-netlify"
+    "gatsby-plugin-netlify" // this must go last
   ]
 };
