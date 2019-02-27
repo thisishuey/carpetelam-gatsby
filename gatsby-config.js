@@ -60,16 +60,7 @@ module.exports = {
         fonts: [
           {
             family: "Roboto",
-            variants: [
-              "300",
-              "300i",
-              "400",
-              "400i",
-              "500",
-              "500i",
-              "700",
-              "700i"
-            ]
+            variants: ["300", "400", "500"]
           },
           {
             family: "Roboto Slab",
