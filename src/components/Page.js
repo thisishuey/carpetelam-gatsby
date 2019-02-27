@@ -28,28 +28,17 @@ function styles(theme) {
 }
 
 function Page({ classes, pageData }) {
-  const { header, main } = classes;
+  const { main } = classes;
   const { acf, content, featuredMediaSrc, title } = pageData;
   const { pageSubtitle, pageTitle } = acf;
   return (
     <Layout>
       <SEO title={title} />
-      <Parallax image={featuredMediaSrc}>
-        <div className={header}>
-          <Typography
-            color="inherit"
-            component="h1"
-            dangerouslySetInnerHTML={{ __html: pageTitle || title }}
-            variant="h3"
-          />
-          <Typography
-            color="inherit"
-            component="h2"
-            dangerouslySetInnerHTML={{ __html: pageSubtitle }}
-            variant="subtitle1"
-          />
-        </div>
-      </Parallax>
+      <Parallax
+        backgroundImage={featuredMediaSrc}
+        pageTitle={pageTitle || title}
+        pageSubtitle={pageSubtitle}
+      />
       <Typography
         className={main}
         component={Paper}

@@ -2,9 +2,14 @@ import React, { createRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import createStyles from "@material-ui/core/styles/createStyles";
 import withStyles from "@material-ui/core/styles/withStyles";
+import Typography from "@material-ui/core/Typography";
 
 function styles(theme) {
   return createStyles({
+    pageTitleStyle: {
+      fontFamily: "Roboto Slab",
+      fontWeight: "bold"
+    },
     parallax: {
       alignItems: "center",
       backgroundPosition: "50%",
@@ -49,8 +54,8 @@ function useScroll() {
   return transform;
 }
 
-function Parallax({ children, classes, image }) {
-  const { parallax } = classes;
+function Parallax({ backgroundImage, classes, pageSubtitle, pageTitle }) {
+  const { header, pageTitleStyle, parallax } = classes;
   const parallaxRef = createRef();
   const transform = useScroll();
   return (
@@ -58,11 +63,25 @@ function Parallax({ children, classes, image }) {
       className={parallax}
       ref={parallaxRef}
       style={{
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${backgroundImage})`,
         transform
       }}
     >
-      {children}
+      <div className={header}>
+        <Typography
+          className={pageTitleStyle}
+          color="inherit"
+          component="h1"
+          dangerouslySetInnerHTML={{ __html: pageTitle }}
+          variant="h3"
+        />
+        <Typography
+          color="inherit"
+          component="h2"
+          dangerouslySetInnerHTML={{ __html: pageSubtitle }}
+          variant="subtitle1"
+        />
+      </div>
     </div>
   );
 }
