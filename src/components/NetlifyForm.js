@@ -16,8 +16,10 @@ function styles(theme) {
 
 function NetlifyForm({ classes, named }) {
   const { honeypot } = classes;
+  const { name } = named;
   return (
     <form {...named}>
+      <input type="hidden" name="form-name" value={name} />
       <Grid container spacing={16}>
         <Grid item sm={6} xs={12}>
           <TextField
