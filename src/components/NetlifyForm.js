@@ -69,6 +69,7 @@ function NetlifyForm({ classes, named }) {
               fullWidth
               margin="normal"
               size="large"
+              type="submit"
               variant="contained"
             >
               Send Email
