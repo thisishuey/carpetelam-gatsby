@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { StaticQuery, graphql } from "gatsby";
+import { graphql, StaticQuery } from "gatsby";
 
 import Footer from "./Footer";
 import Header from "./Header";

@@ -14,11 +14,17 @@ function styles(theme) {
   });
 }
 
-function NetlifyForm({ classes, named }) {
+function GatsbyContactForm({ classes, named }) {
   const { honeypot } = classes;
   const { name } = named;
   return (
-    <form {...named}>
+    <form
+      data-netlify="true"
+      data-netlify-honeypot="phone"
+      method="GET"
+      name="contact-page-form"
+      {...named}
+    >
       <input type="hidden" name="form-name" value={name} />
       <Grid container spacing={16}>
         <Grid item sm={6} xs={12}>
@@ -83,8 +89,8 @@ function NetlifyForm({ classes, named }) {
   );
 }
 
-NetlifyForm.propTypes = {
+GatsbyContactForm.propTypes = {
   children: PropTypes.string
 };
 
-export default withStyles(styles)(NetlifyForm);
+export default withStyles(styles)(GatsbyContactForm);

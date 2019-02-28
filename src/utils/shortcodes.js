@@ -1,9 +1,14 @@
-import NetlifyForm from "../components/NetlifyForm";
+import GatsbyContactForm from "../components/shortcodes/GatsbyContactForm";
+import GatsbyInfiniteScroll from "../components/shortcodes/GatsbyInfiniteScroll";
 
 export const shortcodesBrackets = {
-  "netlify-form": {
+  "gatsby-contact-form": {
     type: "react",
-    component: NetlifyForm
+    component: GatsbyContactForm
+  },
+  "gatsby-infinite-scroll": {
+    type: "react",
+    component: GatsbyInfiniteScroll
   }
 };
 
