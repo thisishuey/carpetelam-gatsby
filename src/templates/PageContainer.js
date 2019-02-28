@@ -3,14 +3,17 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
 import Page from "../components/Page.js";
+import parseShortcodesInString from "../utils/parseShortcodesInString";
 
 function PageContainer({ data }) {
   const featuredMedia = data.wordpressPage.featured_media;
+  const parsedContent = parseShortcodesInString(data.wordpressPage.content);
   const pageData = {
     ...data.wordpressPage,
     featured_media: undefined,
     featuredMediaSrc:
-      featuredMedia && featuredMedia.localFile.childImageSharp.fluid.src
+      featuredMedia && featuredMedia.localFile.childImageSharp.fluid.src,
+    parsedContent
   };
   return <Page pageData={pageData} />;
 }
@@ -29,6 +32,7 @@ export const query = graphql`
         pageSubtitle
       }
       content
+      id
       featured_media {
         localFile {
           childImageSharp {

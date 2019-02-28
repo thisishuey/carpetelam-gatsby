@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Layout from "./Layout.js";
 import Parallax from "./Parallax.js";
 import SEO from "./SEO.js";
+import { shortcodes } from "../utils/shortcodes";
 import withRoot from "../utils/withRoot";
 
 function styles(theme) {
@@ -28,8 +29,31 @@ function styles(theme) {
 
 function Page({ classes, pageData }) {
   const { main } = classes;
-  const { acf, content, featuredMediaSrc, title } = pageData;
+  const { acf, id, featuredMediaSrc, parsedContent, title } = pageData;
   const { pageSubtitle, pageTitle } = acf;
+  const content = parsedContent.map((chunk, index) => {
+    if (chunk.type === "string") {
+      return (
+        <div
+          dangerouslySetInnerHTML={{ __html: chunk.content }}
+          key={`string-${id}-${index}`}
+        />
+      );
+    } else {
+      const Element = shortcodes[chunk.name].component;
+      return (
+        <Element
+          key={`${chunk.name}-${id}-${index}`}
+          name={chunk.name}
+          title={title}
+          entityId={id}
+          {...chunk.attributes}
+        >
+          {chunk.content}
+        </Element>
+      );
+    }
+  });
   return (
     <Layout>
       <SEO title={title} />
@@ -38,12 +62,9 @@ function Page({ classes, pageData }) {
         pageTitle={pageTitle || title}
         pageSubtitle={pageSubtitle}
       />
-      <Typography
-        className={main}
-        component={Paper}
-        dangerouslySetInnerHTML={{ __html: content }}
-        variant="body1"
-      />
+      <Typography className={main} component={Paper} variant="body1">
+        {content}
+      </Typography>
     </Layout>
   );
 }
