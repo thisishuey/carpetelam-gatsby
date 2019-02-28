@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function NetlifyForm({ children = [] }) {
-  return <form>{children}</form>;
+function NetlifyForm(props) {
+  return <form {...props.named}>{props.children}</form>;
 }
 
 NetlifyForm.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.string
 };
 
 export default NetlifyForm;

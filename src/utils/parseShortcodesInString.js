@@ -9,12 +9,18 @@ function parseShortcodesInString(stringToParse) {
   let parsedContent = [];
 
   function parseShortcodeAttributes(attributesString) {
+    // TODO: This appears to be having issues parsing shortcode attributes e.g. [netlify-form title="Contact Form"]
     const attributePattern = /([\w-]+)\s*=\s*"([^"]*)"(?:\s|$)|([\w-]+)\s*=\s*'([^']*)'(?:\s|$)|([\w-]+)\s*=\s*([^\s'"]+)(?:\s|$)|"([^"]*)"(?:\s|$)|(\S+)(?:\s|$)/g;
-    const attributesString1 = attributesString.replace(/[\u00a0\u200b]/g, " ");
+    const attributesStringCleaned = attributesString
+      .replace(/&#8221;/g, '"')
+      .replace(/&#8243;/g, '"')
+      .replace(/&#8217;/g, "'")
+      .replace(/&#8242;/g, "'")
+      .replace(/[\u00a0\u200b]/g, " ");
     let named = {};
     let numeric = [];
     let match;
-    while ((match = attributePattern.exec(attributesString1))) {
+    while ((match = attributePattern.exec(attributesStringCleaned))) {
       if (match[1]) {
         named[match[1].toLowerCase()] = match[2];
       } else if (match[3]) {
