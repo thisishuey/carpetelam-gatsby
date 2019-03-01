@@ -7,7 +7,7 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
   const queryAllWordpressPage = graphql(`
     query {
-      allWordpressPage {
+      pages: allWordpressPage {
         edges {
           node {
             id
@@ -19,9 +19,7 @@ exports.createPages = ({ actions, graphql }) => {
   `);
   const queryAllWordpressPost = graphql(`
     query {
-      allWordpressPost(
-        filter: { categories: { elemMatch: { slug: { ne: "projects" } } } }
-      ) {
+      posts: allWordpressPost {
         edges {
           node {
             id
@@ -31,15 +29,13 @@ exports.createPages = ({ actions, graphql }) => {
       }
     }
   `);
-  const queryAllWordpressPortfolio = graphql(`
+  const queryAllWordpressWpProjects = graphql(`
     query {
-      allWordpressPost(
-        filter: { categories: { elemMatch: { slug: { eq: "projects" } } } }
-      ) {
+      projects: allWordpressWpProjects {
         edges {
           node {
             id
-            slug
+            link
           }
         }
       }
@@ -51,9 +47,8 @@ exports.createPages = ({ actions, graphql }) => {
         console.log(result.errors);
         reject(result.errors);
       }
-      console.log(JSON.stringify(result, null, 2));
       const PageContainer = path.resolve("./src/templates/PageContainer.js");
-      _.each(result.data.allWordpressPage.edges, ({ node }) => {
+      _.each(result.data.pages.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
           path: link,
@@ -70,9 +65,8 @@ exports.createPages = ({ actions, graphql }) => {
         console.log(result.errors);
         reject(result.errors);
       }
-      console.log(JSON.stringify(result, null, 2));
       const PostContainer = path.resolve("./src/templates/PostContainer.js");
-      _.each(result.data.allWordpressPost.edges, ({ node }) => {
+      _.each(result.data.posts.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
           path: `/blog${link}`,
@@ -83,24 +77,25 @@ exports.createPages = ({ actions, graphql }) => {
       resolve();
     });
   });
-  const getPortfolios = new Promise((resolve, reject) => {
-    queryAllWordpressPortfolio.then(result => {
+  const getProjects = new Promise((resolve, reject) => {
+    queryAllWordpressWpProjects.then(result => {
       if (result.errors) {
         console.log(result.errors);
         reject(result.errors);
       }
-      console.log(JSON.stringify(result, null, 2));
-      const PostContainer = path.resolve("./src/templates/PostContainer.js");
-      _.each(result.data.allWordpressPost.edges, ({ node }) => {
-        const { id, slug } = node;
+      const ProjectContainer = path.resolve(
+        "./src/templates/ProjectContainer.js"
+      );
+      _.each(result.data.projects.edges, ({ node }) => {
+        const { id, link } = node;
         return createPage({
-          path: `/projects/${slug}/`,
-          component: slash(PostContainer),
+          path: link,
+          component: slash(ProjectContainer),
           context: { id }
         });
       });
       resolve();
     });
   });
-  return Promise.all([getPages, getPosts, getPortfolios]);
+  return Promise.all([getPages, getPosts, getProjects]);
 };
