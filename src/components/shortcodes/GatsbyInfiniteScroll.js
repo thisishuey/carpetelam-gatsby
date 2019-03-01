@@ -25,7 +25,9 @@ function GatsbyInfiniteScroll({ classes, named }) {
     <StaticQuery
       query={graphql`
         query {
-          allWordpressPost {
+          allWordpressPost(
+            filter: { categories: { elemMatch: { slug: { ne: "projects" } } } }
+          ) {
             edges {
               node {
                 excerpt
