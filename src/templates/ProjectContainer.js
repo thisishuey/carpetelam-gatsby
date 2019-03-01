@@ -11,7 +11,6 @@ function ProjectContainer({ data }) {
   );
   const pageData = {
     ...data.wordpressWpProjects,
-    acf: {}, // TODO clean this up
     parsedContent
   };
   return <Page pageData={pageData} />;

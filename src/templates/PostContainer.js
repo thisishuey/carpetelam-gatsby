@@ -9,7 +9,6 @@ function PostContainer({ data }) {
   const parsedContent = parseShortcodesInString(data.wordpressPost.content);
   const pageData = {
     ...data.wordpressPost,
-    acf: {}, // TODO clean this up
     parsedContent
   };
   return <Page pageData={pageData} />;

@@ -29,7 +29,7 @@ function styles(theme) {
 
 function Page({ classes, pageData }) {
   const { main } = classes;
-  const { acf, id, featuredMedia, parsedContent, title } = pageData;
+  const { acf = {}, id, featuredMedia, parsedContent, title } = pageData;
   const featuredMediaSrc =
     featuredMedia && featuredMedia.localFile.childImageSharp.fluid.src;
   const { pageSubtitle, pageTitle } = acf;
