@@ -19,16 +19,16 @@ function styles(theme) {
   });
 }
 
-function GatsbyListView({ classes, named }) {
+function PostsContainer({ classes, named }) {
   const { cardActions, cardMedia } = classes;
   return (
     <StaticQuery
       query={graphql`
         query {
-          allWordpressWpProjects {
+          allWordpressPost {
             edges {
               node {
-                content
+                excerpt
                 featuredMedia: featured_media {
                   localFile {
                     childImageSharp {
@@ -46,11 +46,11 @@ function GatsbyListView({ classes, named }) {
           }
         }
       `}
-      render={({ allWordpressWpProjects }) => {
-        const posts = allWordpressWpProjects.edges.map(edge => edge.node);
+      render={({ allWordpressPost }) => {
+        const posts = allWordpressPost.edges.map(edge => edge.node);
         return (
           <Grid container {...named} spacing={16}>
-            {posts.map(({ content, featuredMedia, id, link, title }) => {
+            {posts.map(({ excerpt, featuredMedia, id, link, title }) => {
               const featuredMediaSrc =
                 featuredMedia &&
                 featuredMedia.localFile.childImageSharp.fluid.src;
@@ -71,7 +71,7 @@ function GatsbyListView({ classes, named }) {
                         />
                         <Typography
                           component="div"
-                          dangerouslySetInnerHTML={{ __html: content }}
+                          dangerouslySetInnerHTML={{ __html: excerpt }}
                           variant="body1"
                         />
                       </CardContent>
@@ -81,7 +81,7 @@ function GatsbyListView({ classes, named }) {
                         color="primary"
                         component={Link}
                         size="small"
-                        to={link}
+                        to={`/blog${link}`}
                       >
                         Read More
                       </Button>
@@ -97,9 +97,9 @@ function GatsbyListView({ classes, named }) {
   );
 }
 
-GatsbyListView.propTypes = {
+PostsContainer.propTypes = {
   classes: PropTypes.object,
   named: PropTypes.object
 };
 
-export default withStyles(styles)(GatsbyListView);
+export default withStyles(styles)(PostsContainer);

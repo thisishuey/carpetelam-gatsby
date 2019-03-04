@@ -9,9 +9,11 @@ function styles(theme) {
   return createStyles({
     footer: {
       margin: theme.spacing.unit * 2,
+      textAlign: "left",
       width: "auto",
       [theme.breakpoints.up("md")]: {
-        margin: theme.spacing.unit * 4
+        margin: theme.spacing.unit * 4,
+        textAlign: "right"
       }
     }
   });

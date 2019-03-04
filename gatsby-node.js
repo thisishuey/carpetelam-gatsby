@@ -47,7 +47,7 @@ exports.createPages = ({ actions, graphql }) => {
         console.log(result.errors);
         reject(result.errors);
       }
-      const PageContainer = path.resolve("./src/templates/PageContainer.js");
+      const PageContainer = path.resolve("./src/templates/PageTemplate.js");
       _.each(result.data.pages.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
@@ -65,7 +65,7 @@ exports.createPages = ({ actions, graphql }) => {
         console.log(result.errors);
         reject(result.errors);
       }
-      const PostContainer = path.resolve("./src/templates/PostContainer.js");
+      const PostContainer = path.resolve("./src/templates/PostTemplate.js");
       _.each(result.data.posts.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
@@ -84,7 +84,7 @@ exports.createPages = ({ actions, graphql }) => {
         reject(result.errors);
       }
       const ProjectContainer = path.resolve(
-        "./src/templates/ProjectContainer.js"
+        "./src/templates/ProjectTemplate.js"
       );
       _.each(result.data.projects.edges, ({ node }) => {
         const { id, link } = node;

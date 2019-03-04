@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 import Page from "../components/Page.js";
 import parseShortcodesInString from "../utils/parseShortcodesInString";
 
-function PageContainer({ data }) {
+function PageTemplate({ data }) {
   const parsedContent = parseShortcodesInString(data.wordpressPage.content);
   const pageData = {
     ...data.wordpressPage,
@@ -14,11 +14,11 @@ function PageContainer({ data }) {
   return <Page pageData={pageData} />;
 }
 
-PageContainer.propTypes = {
+PageTemplate.propTypes = {
   data: PropTypes.object.isRequired
 };
 
-export default PageContainer;
+export default PageTemplate;
 
 export const query = graphql`
   query($id: String!) {

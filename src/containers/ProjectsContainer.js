@@ -19,18 +19,16 @@ function styles(theme) {
   });
 }
 
-function GatsbyInfiniteScroll({ classes, named }) {
+function ProjectsContainer({ classes, named }) {
   const { cardActions, cardMedia } = classes;
   return (
     <StaticQuery
       query={graphql`
         query {
-          allWordpressPost {
+          allWordpressWpProjects {
             edges {
               node {
-                excerpt
-                id
-                link
+                content
                 featuredMedia: featured_media {
                   localFile {
                     childImageSharp {
@@ -40,17 +38,19 @@ function GatsbyInfiniteScroll({ classes, named }) {
                     }
                   }
                 }
+                id
+                link
                 title
               }
             }
           }
         }
       `}
-      render={({ allWordpressPost }) => {
-        const posts = allWordpressPost.edges.map(edge => edge.node);
+      render={({ allWordpressWpProjects }) => {
+        const posts = allWordpressWpProjects.edges.map(edge => edge.node);
         return (
           <Grid container {...named} spacing={16}>
-            {posts.map(({ excerpt, featuredMedia, id, link, title }) => {
+            {posts.map(({ content, featuredMedia, id, link, title }) => {
               const featuredMediaSrc =
                 featuredMedia &&
                 featuredMedia.localFile.childImageSharp.fluid.src;
@@ -71,7 +71,7 @@ function GatsbyInfiniteScroll({ classes, named }) {
                         />
                         <Typography
                           component="div"
-                          dangerouslySetInnerHTML={{ __html: excerpt }}
+                          dangerouslySetInnerHTML={{ __html: content }}
                           variant="body1"
                         />
                       </CardContent>
@@ -81,7 +81,7 @@ function GatsbyInfiniteScroll({ classes, named }) {
                         color="primary"
                         component={Link}
                         size="small"
-                        to={`/blog${link}`}
+                        to={link}
                       >
                         Read More
                       </Button>
@@ -97,9 +97,9 @@ function GatsbyInfiniteScroll({ classes, named }) {
   );
 }
 
-GatsbyInfiniteScroll.propTypes = {
+ProjectsContainer.propTypes = {
   classes: PropTypes.object,
   named: PropTypes.object
 };
 
-export default withStyles(styles)(GatsbyInfiniteScroll);
+export default withStyles(styles)(ProjectsContainer);
