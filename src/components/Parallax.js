@@ -70,7 +70,7 @@ function Parallax({ backgroundImage, classes, pageSubtitle, pageTitle }) {
       className={parallax}
       ref={parallaxRef}
       style={{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `url(${backgroundImage.src})`,
         transform
       }}
     >

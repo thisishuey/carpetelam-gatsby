@@ -30,8 +30,6 @@ function styles(theme) {
 function Page({ classes, pageData }) {
   const { main } = classes;
   const { acf = {}, id, featuredMedia, parsedContent, title } = pageData;
-  const featuredMediaSrc =
-    featuredMedia && featuredMedia.localFile.childImageSharp.fluid.src;
   const { pageSubtitle, pageTitle } = acf;
   const content = parsedContent.map((chunk, index) => {
     if (chunk.type === "string") {
@@ -60,7 +58,9 @@ function Page({ classes, pageData }) {
     <Layout>
       <SEO title={title} />
       <Parallax
-        backgroundImage={featuredMediaSrc}
+        backgroundImage={
+          featuredMedia && featuredMedia.localFile.childImageSharp.fluid
+        }
         pageTitle={pageTitle || title}
         pageSubtitle={pageSubtitle}
       />
