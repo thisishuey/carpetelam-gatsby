@@ -15,7 +15,10 @@ import Typography from "@material-ui/core/Typography";
 function styles(theme) {
   return createStyles({
     cardActions: {},
-    cardMedia: { height: 140 }
+    cardMedia: {
+      backgroundColor: theme.palette.secondary.light,
+      height: 140
+    }
   });
 }
 
@@ -47,46 +50,52 @@ function PostsContainer({ classes, named }) {
         }
       `}
       render={({ allWordpressPost }) => {
-        const posts = allWordpressPost.edges.map(edge => edge.node);
+        const posts = allWordpressPost.edges.map(
+          ({ node: { excerpt, featuredMedia, id, link, title } }) => {
+            return (
+              <Card key={id}>
+                <CardActionArea>
+                  <CardMedia
+                    className={cardMedia}
+                    image={
+                      featuredMedia &&
+                      featuredMedia.localFile.childImageSharp.fluid.src
+                    }
+                    title={title}
+                  />
+                  <CardContent>
+                    <Typography
+                      component="h2"
+                      dangerouslySetInnerHTML={{ __html: title }}
+                      variant="h5"
+                    />
+                    <Typography
+                      component="div"
+                      dangerouslySetInnerHTML={{ __html: excerpt }}
+                      variant="body1"
+                    />
+                  </CardContent>
+                </CardActionArea>
+                <CardActions className={cardActions}>
+                  <Button
+                    color="primary"
+                    component={Link}
+                    size="small"
+                    to={`/blog${link}`}
+                  >
+                    Read More &raquo;
+                  </Button>
+                </CardActions>
+              </Card>
+            );
+          }
+        );
         return (
           <Grid container {...named} spacing={16}>
-            {posts.map(({ excerpt, featuredMedia, id, link, title }) => {
-              const featuredMediaSrc =
-                featuredMedia &&
-                featuredMedia.localFile.childImageSharp.fluid.src;
+            {posts.map(post => {
               return (
-                <Grid item key={id} sm={4} xs={12}>
-                  <Card>
-                    <CardActionArea>
-                      <CardMedia
-                        className={cardMedia}
-                        image={featuredMediaSrc}
-                        title={title}
-                      />
-                      <CardContent>
-                        <Typography
-                          component="h2"
-                          dangerouslySetInnerHTML={{ __html: title }}
-                          variant="h5"
-                        />
-                        <Typography
-                          component="div"
-                          dangerouslySetInnerHTML={{ __html: excerpt }}
-                          variant="body1"
-                        />
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions className={cardActions}>
-                      <Button
-                        color="primary"
-                        component={Link}
-                        size="small"
-                        to={`/blog${link}`}
-                      >
-                        Read More
-                      </Button>
-                    </CardActions>
-                  </Card>
+                <Grid item key={post.key} sm={4} xs={12}>
+                  {post}
                 </Grid>
               );
             })}
@@ -96,7 +105,6 @@ function PostsContainer({ classes, named }) {
     />
   );
 }
-
 PostsContainer.propTypes = {
   classes: PropTypes.object,
   named: PropTypes.object

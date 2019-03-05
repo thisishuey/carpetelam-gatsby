@@ -34,11 +34,12 @@ function styles(theme) {
         padding: theme.spacing.unit * 4
       },
       "&:before": {
-        background: "rgba(33, 33, 33, 0.75)",
+        background: theme.palette.secondary.dark,
         content: "''",
         display: "block",
         height: "100%",
         left: 0,
+        opacity: 0.75,
         position: "absolute",
         top: 0,
         width: "100%",
