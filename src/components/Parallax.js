@@ -61,7 +61,7 @@ function useScroll() {
   return transform;
 }
 
-function Parallax({ backgroundImage, classes, pageSubtitle, pageTitle }) {
+function Parallax({ backgroundImageSrc, classes, pageSubtitle, pageTitle }) {
   const { header, pageSubtitleStyle, pageTitleStyle, parallax } = classes;
   const parallaxRef = createRef();
   const transform = useScroll();
@@ -70,7 +70,7 @@ function Parallax({ backgroundImage, classes, pageSubtitle, pageTitle }) {
       className={parallax}
       ref={parallaxRef}
       style={{
-        backgroundImage: `url(${backgroundImage.src})`,
+        backgroundImage: `url(${backgroundImageSrc})`,
         transform
       }}
     >

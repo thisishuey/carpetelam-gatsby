@@ -58,8 +58,8 @@ function Page({ classes, pageData }) {
     <Layout>
       <SEO title={title} />
       <Parallax
-        backgroundImage={
-          featuredMedia && featuredMedia.localFile.childImageSharp.fluid
+        backgroundImageSrc={
+          featuredMedia && featuredMedia.localFile.childImageSharp.fluid.src
         }
         pageTitle={pageTitle || title}
         pageSubtitle={pageSubtitle}
