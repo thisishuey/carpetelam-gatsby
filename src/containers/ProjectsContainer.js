@@ -9,7 +9,7 @@ function ProjectsContainer() {
     <StaticQuery
       query={graphql`
         query {
-          allWordpressWpProjects {
+          allWordpressWpProjects(sort: { fields: [menu_order], order: ASC }) {
             edges {
               node {
                 content

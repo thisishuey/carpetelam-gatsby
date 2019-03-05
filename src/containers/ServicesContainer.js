@@ -9,7 +9,7 @@ function ServicesContainer({ classes, named }) {
     <StaticQuery
       query={graphql`
         query {
-          allWordpressWpServices {
+          allWordpressWpServices(sort: { fields: [menu_order], order: ASC }) {
             edges {
               node {
                 content
