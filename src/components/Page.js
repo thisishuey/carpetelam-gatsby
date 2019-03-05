@@ -13,7 +13,7 @@ import withRoot from "../utils/withRoot";
 
 function styles(theme) {
   return createStyles({
-    main: {
+    wpContent: {
       margin: theme.spacing.unit * 2,
       marginTop: theme.spacing.unit * -8,
       padding: theme.spacing.unit * 2,
@@ -22,13 +22,19 @@ function styles(theme) {
         marginTop: theme.spacing.unit * -8,
         padding: theme.spacing.unit * 12
       },
+      "& h1": { ...theme.typography.h1 },
+      "& h2": { ...theme.typography.h2 },
+      "& h3": { ...theme.typography.h3 },
+      "& h4": { ...theme.typography.h4 },
+      "& h5": { ...theme.typography.h5 },
+      "& h6": { ...theme.typography.h6 },
       "& a": { color: theme.palette.primary.main, textDecoration: "none" }
     }
   });
 }
 
 function Page({ classes, pageData }) {
-  const { main } = classes;
+  const { wpContent } = classes;
   const { acf = {}, id, featuredMedia, parsedContent, title } = pageData;
   const { pageSubtitle, pageTitle } = acf;
   const content = parsedContent.map((chunk, index) => {
@@ -64,7 +70,7 @@ function Page({ classes, pageData }) {
         pageTitle={pageTitle || title}
         pageSubtitle={pageSubtitle}
       />
-      <Typography className={main} component={Paper} variant="body1">
+      <Typography className={wpContent} component={Paper} variant="body1">
         {content}
       </Typography>
     </Layout>

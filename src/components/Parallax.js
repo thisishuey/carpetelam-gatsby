@@ -77,12 +77,10 @@ function Parallax({ backgroundImageSrc, classes, pageSubtitle, pageTitle }) {
       <div className={header}>
         <Typography
           className={pageTitleStyle}
-          component="h1"
           dangerouslySetInnerHTML={{ __html: pageTitle }}
         />
         <Typography
           className={pageSubtitleStyle}
-          component="h2"
           dangerouslySetInnerHTML={{ __html: pageSubtitle }}
         />
       </div>

@@ -36,12 +36,10 @@ function PostCard({ classes, post }) {
         />
         <CardContent>
           <Typography
-            component="h2"
             dangerouslySetInnerHTML={{ __html: title }}
             variant="h5"
           />
           <Typography
-            component="div"
             dangerouslySetInnerHTML={{ __html: excerpt }}
             variant="body1"
           />

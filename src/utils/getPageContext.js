@@ -4,6 +4,11 @@ import createGenerateClassName from "@material-ui/core/styles/createGenerateClas
 import blue from "@material-ui/core/colors/blue";
 import grey from "@material-ui/core/colors/grey";
 
+const headingBase = {
+  fontFamily: "Roboto Slab",
+  fontWeight: "bold"
+};
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -19,6 +24,12 @@ const theme = createMuiTheme({
     type: "light"
   },
   typography: {
+    h1: { ...headingBase },
+    h2: { ...headingBase },
+    h3: { ...headingBase },
+    h4: { ...headingBase },
+    h5: { ...headingBase },
+    h6: { ...headingBase },
     useNextVariants: true
   }
 });

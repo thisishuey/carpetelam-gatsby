@@ -16,12 +16,10 @@ function ProjectsContainer({ items }) {
             <ListItem alignItems="flex-start">
               <ListItemText>
                 <Typography
-                  component="h2"
                   dangerouslySetInnerHTML={{ __html: title }}
                   variant="h5"
                 />
                 <Typography
-                  component="div"
                   dangerouslySetInnerHTML={{ __html: content }}
                   variant="body1"
                 />
