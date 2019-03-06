@@ -68,7 +68,7 @@ function Header({ brand, classes, links, tagline }) {
           variant="h6"
         >
           {brand}
-          <Hidden xsDown> &mdash; {tagline}</Hidden>
+          <Hidden xsDown> &ndash; {tagline}</Hidden>
         </Typography>
         <div className={sectionDesktop}>
           {links.map(({ object_id: key, title, url }) => {
