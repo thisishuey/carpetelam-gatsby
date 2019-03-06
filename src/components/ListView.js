@@ -51,16 +51,16 @@ function GatsbyServices({ classes, named }) {
         return (
           <Grid container {...named} spacing={16}>
             {posts.map(({ content, featuredMedia, id, link, title }) => {
-              const featuredMediaSrc =
-                featuredMedia &&
-                featuredMedia.localFile.childImageSharp.fluid.src;
               return (
                 <Grid item key={id} sm={4} xs={12}>
                   <Card>
                     <CardActionArea>
                       <CardMedia
                         className={cardMedia}
-                        image={featuredMediaSrc}
+                        image={
+                          featuredMedia &&
+                          featuredMedia.localFile.childImageSharp.fluid.src
+                        }
                         title={title}
                       />
                       <CardContent>
@@ -70,7 +70,6 @@ function GatsbyServices({ classes, named }) {
                         />
                         <Typography
                           dangerouslySetInnerHTML={{ __html: content }}
-                          variant="body1"
                         />
                       </CardContent>
                     </CardActionArea>

@@ -39,10 +39,7 @@ function PostCard({ classes, post }) {
             dangerouslySetInnerHTML={{ __html: title }}
             variant="h5"
           />
-          <Typography
-            dangerouslySetInnerHTML={{ __html: excerpt }}
-            variant="body1"
-          />
+          <Typography dangerouslySetInnerHTML={{ __html: excerpt }} />
         </CardContent>
       </CardActionArea>
       <CardActions className={cardActions}>

@@ -70,7 +70,7 @@ function Page({ classes, pageData }) {
         pageTitle={pageTitle || title}
         pageSubtitle={pageSubtitle}
       />
-      <Typography className={wpContent} component={Paper} variant="body1">
+      <Typography className={wpContent} component={Paper}>
         {content}
       </Typography>
     </Layout>
