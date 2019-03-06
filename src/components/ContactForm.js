@@ -30,8 +30,8 @@ function GatsbyContactForm({ classes, named }) {
         <Grid item sm={6} xs={12}>
           <TextField
             fullWidth
-            label="Full Name"
-            name="full-name"
+            label="Name"
+            name="name"
             placeholder="Princess Zelda"
             required
             variant="outlined"
@@ -70,19 +70,17 @@ function GatsbyContactForm({ classes, named }) {
             variant="outlined"
           />
         </Grid>
-        <Grid container direction="row-reverse" item xs={12}>
-          <Grid item sm={3} xs={12}>
-            <Button
-              color="primary"
-              fullWidth
-              margin="normal"
-              size="large"
-              type="submit"
-              variant="contained"
-            >
-              Send Email
-            </Button>
-          </Grid>
+        <Grid item sm={3} xs={12}>
+          <Button
+            color="primary"
+            fullWidth
+            margin="normal"
+            size="large"
+            type="submit"
+            variant="contained"
+          >
+            Send Email
+          </Button>
         </Grid>
       </Grid>
     </form>
