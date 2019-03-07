@@ -22,7 +22,7 @@ function styles(theme) {
 function Footer({ classes, company }) {
   const { footer } = classes;
   return (
-    <Typography className={footer} color="inherit" component="footer">
+    <Typography className={footer} component="footer">
       © {new Date().getFullYear()}, {company}. Headless CMS powered by{" "}
       <Link
         href="https://wordpress.org/"
