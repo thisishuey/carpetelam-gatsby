@@ -21,7 +21,7 @@ function ProjectsContainer({ items }) {
                 />
                 <Typography
                   dangerouslySetInnerHTML={{ __html: content }}
-                  variant="subtitle1"
+                  variant="body2"
                 />
               </ListItemText>
             </ListItem>
