@@ -54,21 +54,6 @@ module.exports = {
         ]
       }
     },
-    {
-      resolve: "gatsby-plugin-prefetch-google-fonts",
-      options: {
-        fonts: [
-          {
-            family: "Roboto",
-            variants: [300, 400, 500, 700]
-          },
-          {
-            family: "Roboto Slab",
-            variants: [300, 400, 700]
-          }
-        ]
-      }
-    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
