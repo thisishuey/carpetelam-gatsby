@@ -73,3 +73,7 @@ tags
 
 # .env
 .env*
+
+# cypress
+cypress/screenshots
+cypress/videos
