@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import classNames from "classnames";
 import createStyles from "@material-ui/core/styles/createStyles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
@@ -33,6 +35,14 @@ function styles(theme) {
     menuList: {
       width: 250
     },
+    navLink: {
+      "&.active": {
+        background: theme.palette.secondary.light,
+        [theme.breakpoints.up("md")]: {
+          background: theme.palette.secondary.dark
+        }
+      }
+    },
     sectionDesktop: {
       display: "none",
       [theme.breakpoints.up("md")]: {
@@ -54,6 +64,7 @@ function Header({ brand, classes, links, tagline }) {
     centerContent,
     logo,
     menuList,
+    navLink,
     sectionDesktop,
     sectionMobile
   } = classes;
@@ -70,21 +81,42 @@ function Header({ brand, classes, links, tagline }) {
           {brand}
           <Hidden xsDown> &ndash; {tagline}</Hidden>
         </Typography>
-        <div className={sectionDesktop}>
+        <nav className={sectionDesktop}>
           {links.map(({ object_id: key, title, url }) => {
+            const NavLink = props => (
+              <Link
+                {...props}
+                getProps={({ href, isCurrent, isPartiallyCurrent }) => ({
+                  className: classNames(props.className, {
+                    active: isCurrent || (href !== "/" && isPartiallyCurrent)
+                  })
+                })}
+                to={url}
+              />
+            );
             return (
-              <Button color="inherit" component={Link} key={key} to={url}>
+              <Button
+                className={navLink}
+                color="inherit"
+                component={NavLink}
+                key={key}
+              >
                 {title}
               </Button>
             );
           })}
-        </div>
+        </nav>
         <div className={sectionMobile}>
           <IconButton color="inherit" onClick={() => setOpen(true)}>
             <MenuIcon />
           </IconButton>
-          <Drawer anchor="right" onClose={() => setOpen(false)} open={open}>
-            <div
+          <Drawer
+            anchor="right"
+            color="primary"
+            onClose={() => setOpen(false)}
+            open={open}
+          >
+            <nav
               tabIndex={0}
               onClick={() => setOpen(false)}
               onKeyDown={() => setOpen(false)}
@@ -92,16 +124,29 @@ function Header({ brand, classes, links, tagline }) {
             >
               <List className={menuList}>
                 {links.map(({ object_id: key, title, url }) => {
+                  const NavLink = props => (
+                    <Link
+                      {...props}
+                      getProps={({ href, isCurrent, isPartiallyCurrent }) => ({
+                        className: classNames(props.className, {
+                          active:
+                            isCurrent || (href !== "/" && isPartiallyCurrent)
+                        })
+                      })}
+                      to={url}
+                    />
+                  );
                   return (
                     <li key={key}>
-                      <ListItem button component={Link} to={url}>
+                      <ListItem button className={navLink} component={NavLink}>
                         <ListItemText primary={title} />
                       </ListItem>
+                      <Divider />
                     </li>
                   );
                 })}
               </List>
-            </div>
+            </nav>
           </Drawer>
         </div>
       </Toolbar>
