@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 function styles(theme) {
   return createStyles({
     footer: {
+      color: theme.palette.text,
       margin: theme.spacing.unit * 2,
       textAlign: "left",
       width: "auto",

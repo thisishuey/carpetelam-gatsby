@@ -12,9 +12,7 @@ const headingBase = {
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: blue[700],
-      main: blue[800],
-      dark: blue[900]
+      main: blue[900]
     },
     secondary: {
       light: grey[700],
