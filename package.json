@@ -32,7 +32,7 @@
   "scripts": {
     "build": "npx gatsby build",
     "develop": "npx gatsby develop -H 0.0.0.0",
-    "start": "npm run develop",
+    "start": "yarn develop",
     "serve": "npx gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
