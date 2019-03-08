@@ -68,14 +68,14 @@ function Header({ brand, classes, links, tagline }) {
     sectionDesktop,
     sectionMobile
   } = classes;
+  const BrandLink = props => <Link {...props} to="/" />;
   return (
     <AppBar color="secondary" position="sticky">
       <Toolbar className={centerContent}>
         <Typography
           className={logo}
           color="inherit"
-          component={Link}
-          to="/"
+          component={BrandLink}
           variant="h6"
         >
           {brand}
