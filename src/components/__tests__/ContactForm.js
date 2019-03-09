@@ -2,7 +2,11 @@ import React from "react";
 import { render } from "react-testing-library";
 import ContactForm from "../ContactForm";
 
-const { getByLabelText } = render(<ContactForm />);
+const { container, getByLabelText } = render(<ContactForm />);
+
+test("contact form matches snapshot", () => {
+  expect(container.firstChild).toMatchSnapshot();
+});
 
 test("contact form renders name field", () => {
   expect(getByLabelText(/name/i)).toBeDefined();

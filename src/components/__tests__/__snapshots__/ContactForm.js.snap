@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`contact form matches snapshot 1`] = `
+<form
+  data-netlify="true"
+  data-netlify-honeypot="phone"
+  method="GET"
+  name="contact-page-form"
+>
+  <input
+    name="form-name"
+    type="hidden"
+    value=""
+  />
+  <div
+    class="MuiGrid-container-2 MuiGrid-spacing-xs-16-25"
+  >
+    <div
+      class="MuiGrid-item-3 MuiGrid-grid-xs-12-42 MuiGrid-grid-sm-6-50"
+    >
+      <div
+        class="MuiFormControl-root-99 MuiFormControl-fullWidth-102"
+      >
+        <label
+          class="MuiFormLabel-root-114 MuiFormLabel-required-119 MuiInputLabel-required-107 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
+          data-shrink="false"
+        >
+          Name
+          <span
+            class="MuiFormLabel-asterisk-120"
+          >
+             *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root-134 MuiOutlinedInput-root-121 MuiInputBase-fullWidth-143 MuiInputBase-formControl-135"
+        >
+          <fieldset
+            aria-hidden="true"
+            class="MuiPrivateNotchedOutline-root-151 MuiOutlinedInput-notchedOutline-128"
+            style="padding-left: 8px;"
+          >
+            <legend
+              class="MuiPrivateNotchedOutline-legend-152"
+              style="width: 0.01px;"
+            >
+              <span>
+                ​
+              </span>
+            </legend>
+          </fieldset>
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input-144 MuiOutlinedInput-input-129"
+            name="name"
+            placeholder="Princess Zelda"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-item-3 MuiGrid-grid-xs-12-42 MuiGrid-grid-sm-6-50"
+    >
+      <div
+        class="MuiFormControl-root-99 MuiFormControl-fullWidth-102"
+      >
+        <label
+          class="MuiFormLabel-root-114 MuiFormLabel-required-119 MuiInputLabel-required-107 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
+          data-shrink="false"
+        >
+          Email
+          <span
+            class="MuiFormLabel-asterisk-120"
+          >
+             *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root-134 MuiOutlinedInput-root-121 MuiInputBase-fullWidth-143 MuiInputBase-formControl-135"
+        >
+          <fieldset
+            aria-hidden="true"
+            class="MuiPrivateNotchedOutline-root-151 MuiOutlinedInput-notchedOutline-128"
+            style="padding-left: 8px;"
+          >
+            <legend
+              class="MuiPrivateNotchedOutline-legend-152"
+              style="width: 0.01px;"
+            >
+              <span>
+                ​
+              </span>
+            </legend>
+          </fieldset>
+          <input
+            aria-invalid="false"
+            autocomplete="email"
+            class="MuiInputBase-input-144 MuiOutlinedInput-input-129 MuiInputBase-inputType-147"
+            name="email"
+            placeholder="princess.zelda@hyrule.gov"
+            required=""
+            type="email"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-item-3 MuiGrid-grid-xs-12-42 GatsbyContactForm-honeypot-1"
+    >
+      <div
+        class="MuiFormControl-root-99 MuiFormControl-fullWidth-102"
+        placholder="404.555.1212"
+      >
+        <label
+          class="MuiFormLabel-root-114 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
+          data-shrink="false"
+        >
+          Phone
+        </label>
+        <div
+          class="MuiInputBase-root-134 MuiOutlinedInput-root-121 MuiInputBase-fullWidth-143 MuiInputBase-formControl-135"
+        >
+          <fieldset
+            aria-hidden="true"
+            class="MuiPrivateNotchedOutline-root-151 MuiOutlinedInput-notchedOutline-128"
+            style="padding-left: 8px;"
+          >
+            <legend
+              class="MuiPrivateNotchedOutline-legend-152"
+              style="width: 0.01px;"
+            >
+              <span>
+                ​
+              </span>
+            </legend>
+          </fieldset>
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input-144 MuiOutlinedInput-input-129"
+            name="phone"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-item-3 MuiGrid-grid-xs-12-42"
+    >
+      <div
+        class="MuiFormControl-root-99 MuiFormControl-fullWidth-102"
+      >
+        <label
+          class="MuiFormLabel-root-114 MuiFormLabel-required-119 MuiInputLabel-required-107 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
+          data-shrink="false"
+        >
+          Message
+          <span
+            class="MuiFormLabel-asterisk-120"
+          >
+             *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root-134 MuiOutlinedInput-root-121 MuiInputBase-fullWidth-143 MuiInputBase-formControl-135 MuiInputBase-multiline-142 MuiOutlinedInput-multiline-127"
+        >
+          <fieldset
+            aria-hidden="true"
+            class="MuiPrivateNotchedOutline-root-151 MuiOutlinedInput-notchedOutline-128"
+            style="padding-left: 8px;"
+          >
+            <legend
+              class="MuiPrivateNotchedOutline-legend-152"
+              style="width: 0.01px;"
+            >
+              <span>
+                ​
+              </span>
+            </legend>
+          </fieldset>
+          <textarea
+            aria-invalid="false"
+            class="MuiInputBase-input-144 MuiOutlinedInput-input-129 MuiInputBase-inputMultiline-146 MuiOutlinedInput-inputMultiline-131"
+            name="message"
+            placeholder="Open your eyes... Wake up, Link."
+            required=""
+            rows="4"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-item-3 MuiGrid-grid-xs-12-42 MuiGrid-grid-sm-3-47"
+    >
+      <button
+        class="MuiButtonBase-root-179 MuiButton-root-153 MuiButton-contained-164 MuiButton-containedPrimary-165 MuiButton-raised-167 MuiButton-raisedPrimary-168 MuiButton-sizeLarge-177 MuiButton-fullWidth-178"
+        margin="normal"
+        tabindex="0"
+        type="submit"
+      >
+        <span
+          class="MuiButton-label-154"
+        >
+          Send Email
+        </span>
+        <span
+          class="MuiTouchRipple-root-182"
+        />
+      </button>
+    </div>
+  </div>
+</form>
+`;
