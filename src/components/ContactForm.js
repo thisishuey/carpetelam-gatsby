@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 
-function styles(theme) {
+function styles() {
   return createStyles({
     honeypot: {
       display: "none"
@@ -14,7 +14,7 @@ function styles(theme) {
   });
 }
 
-function GatsbyContactForm({ classes, named }) {
+function GatsbyContactForm({ classes, named = {} }) {
   const { honeypot } = classes;
   const { name } = named;
   return (
@@ -88,7 +88,9 @@ function GatsbyContactForm({ classes, named }) {
 }
 
 GatsbyContactForm.propTypes = {
-  children: PropTypes.string
+  children: PropTypes.string,
+  classes: PropTypes.object,
+  named: PropTypes.object
 };
 
 export default withStyles(styles)(GatsbyContactForm);

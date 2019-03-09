@@ -1,5 +1,14 @@
 {
-  "extends": ["gatsby-standard"],
+  "extends": [
+    "gatsby-standard",
+    "kentcdodds",
+    "kentcdodds/react",
+    "kentcdodds/jsx-a11y",
+    "kentcdodds/jest"
+  ],
   "plugins": ["react-hooks"],
-  "rules": { "react-hooks/rules-of-hooks": "error" }
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "babel/quotes": ["error", "double", { "avoidEscape": true }]
+  }
 }
