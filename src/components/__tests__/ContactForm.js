@@ -16,6 +16,10 @@ test("contact form renders email field", () => {
   expect(getByLabelText(/email/i)).toBeDefined();
 });
 
+test("contact form renders phone field", () => {
+  expect(getByLabelText(/phone/i)).toBeDefined();
+});
+
 test("contact form renders message field", () => {
   expect(getByLabelText(/message/i)).toBeDefined();
 });

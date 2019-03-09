@@ -30,6 +30,7 @@ function GatsbyContactForm({ classes, named = {} }) {
         <Grid item sm={6} xs={12}>
           <TextField
             fullWidth
+            id="contact-name"
             label="Name"
             name="name"
             placeholder="Princess Zelda"
@@ -41,17 +42,19 @@ function GatsbyContactForm({ classes, named = {} }) {
           <TextField
             autoComplete="email"
             fullWidth
+            id="contact-email"
             label="Email"
             name="email"
             placeholder="princess.zelda@hyrule.gov"
-            required
             type="email"
+            required
             variant="outlined"
           />
         </Grid>
         <Grid className={honeypot} item xs={12}>
           <TextField
             fullWidth
+            id="contact-phone"
             label="Phone"
             name="phone"
             placholder="404.555.1212"
@@ -61,6 +64,7 @@ function GatsbyContactForm({ classes, named = {} }) {
         <Grid item xs={12}>
           <TextField
             fullWidth
+            id="contact-message"
             label="Message"
             multiline
             name="message"

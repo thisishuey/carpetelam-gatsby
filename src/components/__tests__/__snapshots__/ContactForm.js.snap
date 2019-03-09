@@ -24,6 +24,7 @@ exports[`contact form matches snapshot 1`] = `
         <label
           class="MuiFormLabel-root-114 MuiFormLabel-required-119 MuiInputLabel-required-107 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
           data-shrink="false"
+          for="contact-name"
         >
           Name
           <span
@@ -52,6 +53,7 @@ exports[`contact form matches snapshot 1`] = `
           <input
             aria-invalid="false"
             class="MuiInputBase-input-144 MuiOutlinedInput-input-129"
+            id="contact-name"
             name="name"
             placeholder="Princess Zelda"
             required=""
@@ -70,6 +72,7 @@ exports[`contact form matches snapshot 1`] = `
         <label
           class="MuiFormLabel-root-114 MuiFormLabel-required-119 MuiInputLabel-required-107 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
           data-shrink="false"
+          for="contact-email"
         >
           Email
           <span
@@ -99,6 +102,7 @@ exports[`contact form matches snapshot 1`] = `
             aria-invalid="false"
             autocomplete="email"
             class="MuiInputBase-input-144 MuiOutlinedInput-input-129 MuiInputBase-inputType-147"
+            id="contact-email"
             name="email"
             placeholder="princess.zelda@hyrule.gov"
             required=""
@@ -118,6 +122,7 @@ exports[`contact form matches snapshot 1`] = `
         <label
           class="MuiFormLabel-root-114 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
           data-shrink="false"
+          for="contact-phone"
         >
           Phone
         </label>
@@ -141,6 +146,7 @@ exports[`contact form matches snapshot 1`] = `
           <input
             aria-invalid="false"
             class="MuiInputBase-input-144 MuiOutlinedInput-input-129"
+            id="contact-phone"
             name="phone"
             type="text"
             value=""
@@ -157,6 +163,7 @@ exports[`contact form matches snapshot 1`] = `
         <label
           class="MuiFormLabel-root-114 MuiFormLabel-required-119 MuiInputLabel-required-107 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
           data-shrink="false"
+          for="contact-message"
         >
           Message
           <span
@@ -185,6 +192,7 @@ exports[`contact form matches snapshot 1`] = `
           <textarea
             aria-invalid="false"
             class="MuiInputBase-input-144 MuiOutlinedInput-input-129 MuiInputBase-inputMultiline-146 MuiOutlinedInput-inputMultiline-131"
+            id="contact-message"
             name="message"
             placeholder="Open your eyes... Wake up, Link."
             required=""
