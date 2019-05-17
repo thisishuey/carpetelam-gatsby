@@ -48,6 +48,15 @@ function Layout({ children, classes }) {
             <Header brand={name} tagline={description} links={items} />
             {children}
             <Footer company={company} />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33919615-3"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-33919615-3');
+            </script>
           </Fragment>
         );
       }}
