@@ -5,7 +5,7 @@ import { graphql, StaticQuery } from "gatsby";
 import Footer from "./Footer";
 import Header from "./Header";
 
-function Layout({ children, classes }) {
+function Layout({ children }) {
   return (
     <StaticQuery
       query={graphql`
@@ -48,15 +48,6 @@ function Layout({ children, classes }) {
             <Header brand={name} tagline={description} links={items} />
             {children}
             <Footer company={company} />
-            <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33919615-3"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'UA-33919615-3');
-            </script>
           </Fragment>
         );
       }}
@@ -65,8 +56,7 @@ function Layout({ children, classes }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  classes: PropTypes.object
+  children: PropTypes.node.isRequired
 };
 
 export default Layout;

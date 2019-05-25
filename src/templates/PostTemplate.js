@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
-import Page from "../components/Page.js";
+import Page from "../components/Page";
 import parseShortcodesInString from "../utils/parseShortcodesInString";
 
 function PostContainer({ data }) {
