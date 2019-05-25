@@ -5,11 +5,11 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
-import Layout from "./Layout.js";
-import Parallax from "./Parallax.js";
-import SEO from "./SEO.js";
 import { shortcodes } from "../utils/shortcodes";
 import withRoot from "../utils/withRoot";
+import Layout from "./Layout";
+import Parallax from "./Parallax";
+import Seo from "./SEO";
 
 function styles(theme) {
   return createStyles({
@@ -62,7 +62,7 @@ function Page({ classes, pageData }) {
   });
   return (
     <Layout>
-      <SEO title={title} />
+      <Seo title={title} />
       <Parallax
         backgroundImageSrc={
           featuredMedia && featuredMedia.localFile.childImageSharp.fluid.src

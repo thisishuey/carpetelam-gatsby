@@ -40,7 +40,7 @@ function styles(theme) {
 }
 
 function useScroll() {
-  const [transform, setTransform] = useState(`translate3d(0, 0, 0)`);
+  const [transform, setTransform] = useState("translate3d(0, 0, 0)");
   useEffect(() => {
     const resetTransform = () =>
       setTransform(`translate3d(0, ${window.pageYOffset / 3}px, 0)`);
@@ -81,7 +81,10 @@ function Parallax({ backgroundImageSrc, classes, pageSubtitle, pageTitle }) {
 }
 
 Parallax.propTypes = {
-  classes: PropTypes.object
+  backgroundImageSrc: PropTypes.string,
+  classes: PropTypes.object,
+  pageSubtitle: PropTypes.string,
+  pageTitle: PropTypes.string
 };
 
 export default withStyles(styles)(Parallax);

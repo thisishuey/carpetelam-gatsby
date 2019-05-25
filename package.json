@@ -6,8 +6,11 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
+    "classnames": "^2.2.6",
+    "dotenv": "^8.0.0",
     "gatsby": "^2.1.4",
     "gatsby-image": "^2.0.29",
+    "gatsby-plugin-google-analytics": "^2.0.20",
     "gatsby-plugin-manifest": "^2.0.17",
     "gatsby-plugin-netlify": "^2.0.11",
     "gatsby-plugin-offline": "^2.0.23",
@@ -65,7 +68,7 @@
     "cy:open": "cypress open",
     "cy:test": "start-server-and-test start http://0.0.0.0:8000 cy:run",
     "cy:run": "cypress run",
-    "develop": "gatsby develop -H 0.0.0.0",
+    "develop": "gatsby develop -H 0.0.0.0 -p 8000",
     "serve": "gatsby serve",
     "start": "yarn develop",
     "test": "jest"

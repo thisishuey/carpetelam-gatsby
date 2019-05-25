@@ -35,7 +35,7 @@ function ProjectsContainer({ items }) {
 }
 
 ProjectsContainer.propTypes = {
-  props: PropTypes.object
+  items: PropTypes.object
 };
 
 export default ProjectsContainer;

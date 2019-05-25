@@ -58,7 +58,7 @@ function PostCard({ classes, post }) {
 
 PostCard.propTypes = {
   classes: PropTypes.object,
-  named: PropTypes.object
+  post: PropTypes.object
 };
 
 export default withStyles(styles)(PostCard);

@@ -4,11 +4,11 @@ import createStyles from "@material-ui/core/styles/createStyles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
 
-function styles(theme) {
+function styles() {
   return createStyles({});
 }
 
-function InfiniteScroll({ cards, classes }) {
+function InfiniteScroll({ cards }) {
   return (
     <Grid container spacing={16}>
       {cards.map(card => {
@@ -23,8 +23,7 @@ function InfiniteScroll({ cards, classes }) {
 }
 
 InfiniteScroll.propTypes = {
-  cards: PropTypes.object,
-  classes: PropTypes.object
+  cards: PropTypes.object
 };
 
 export default withStyles(styles)(InfiniteScroll);
