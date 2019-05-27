@@ -21,20 +21,13 @@ PostContainer.propTypes = {
 export default PostContainer;
 
 export const query = graphql`
-  query($id: String!) {
-    wordpressPost(id: { eq: $id }) {
-      content
-      id
-      featuredMedia: featured_media {
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 1500) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+  query($id: ID!) {
+    wpgraphql {
+      post(id: $id) {
+        content
+        id
+        title
       }
-      title
     }
   }
 `;

@@ -4,9 +4,10 @@ import {
   shortcodesSingleLine
 } from "./shortcodes";
 
+// eslint-disable-next-line max-lines-per-function
 function parseShortcodesInString(stringToParse) {
-  let sortedShortcodes = {};
-  let parsedContent = [];
+  const sortedShortcodes = {};
+  const parsedContent = [];
 
   function parseShortcodeAttributes(attributesString) {
     // TODO: This appears to be having issues parsing shortcode attributes e.g. [netlify-form title="Contact Form"]
@@ -17,8 +18,8 @@ function parseShortcodesInString(stringToParse) {
       .replace(/&#8217;/g, "'")
       .replace(/&#8242;/g, "'")
       .replace(/[\u00a0\u200b]/g, " ");
-    let named = {};
-    let numeric = [];
+    const named = {};
+    const numeric = [];
     let match;
     while ((match = attributePattern.exec(attributesStringCleaned))) {
       if (match[1]) {
@@ -59,15 +60,16 @@ function parseShortcodesInString(stringToParse) {
 
   function findBracketShortcodes(stringToSearch) {
     const findShortcodeRegExp = new RegExp(
-      "\\[(\\[?)(" +
-        Object.keys(shortcodesBrackets).join("|") +
-        ")(?![\\w-])([^\\]\\/]*(?:\\/(?!\\])[^\\]\\/]*)*?)(?:(\\/)\\]|\\](?:([^\\[]*(?:\\[(?!\\/\\2\\])[^\\[]*)*)(\\[\\/\\2\\]))?)(\\]?)",
+      `\\[(\\[?)(${Object.keys(shortcodesBrackets).join(
+        "|"
+      )})(?![\\w-])([^\\]\\/]*(?:\\/(?!\\])[^\\]\\/]*)*?)(?:(\\/)\\]|\\](?:([^\\[]*(?:\\[(?!\\/\\2\\])[^\\[]*)*)(\\[\\/\\2\\]))?)(\\]?)`,
       "g"
     );
     let match;
-    let matches = [];
+    const matches = [];
     while ((match = findShortcodeRegExp.exec(stringToSearch)) !== null) {
       if (match[1] === "[" && match[7] === "]") {
+        // eslint-disable-next-line no-continue
         continue;
       }
       let matchIndex = match.index;
@@ -85,8 +87,8 @@ function parseShortcodesInString(stringToParse) {
           matchIndex,
           matchLastIndex,
           shortcodesBrackets[match[2]].type,
-          shortcodeAttributes["named"],
-          shortcodeAttributes["numeric"],
+          shortcodeAttributes.named,
+          shortcodeAttributes.numeric,
           match[5]
         )
       );
@@ -94,17 +96,17 @@ function parseShortcodesInString(stringToParse) {
     return matches;
   }
 
-  function findSingleLineShortcodes(stringToSearch, shortcodesSingleLine) {
-    let matches = [];
-    for (const prop in shortcodesSingleLine) {
+  function findSingleLineShortcodes(stringToSearch, shortcodesSingleLineProps) {
+    const matches = [];
+    for (const prop in shortcodesSingleLineProps) {
       if (shortcodesSingleLine.hasOwnProperty(prop)) {
         const shortcodeObject = shortcodesSingleLine[prop];
         for (const regexpString of shortcodeObject.regexp) {
           const findShortcodeRegExp = new RegExp(regexpString, "gi");
           let match;
           while ((match = findShortcodeRegExp.exec(stringToSearch)) !== null) {
-            let matchIndex = match.index;
-            let matchLastIndex = findShortcodeRegExp.lastIndex - 1;
+            const matchIndex = match.index;
+            const matchLastIndex = findShortcodeRegExp.lastIndex - 1;
             matches.unshift(
               returnShortcodeObject(
                 prop,
@@ -133,10 +135,11 @@ function parseShortcodesInString(stringToParse) {
     foundSingleLineShortcodes
   );
 
-  function sortShortcodes(foundShortcodes) {
-    foundShortcodes.map(item => {
+  function sortShortcodes(foundShortcodesToSort) {
+    foundShortcodesToSort.map(item => {
       const { indices } = item;
       sortedShortcodes[indices.start] = item;
+      return true;
     });
   }
 
@@ -230,6 +233,7 @@ function parseShortcodesInString(stringToParse) {
         )
       );
     }
+    return true;
   });
 
   return parsedContent;

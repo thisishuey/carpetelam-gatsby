@@ -1,17 +1,19 @@
+const path = require("path");
 const _ = require("lodash");
 const Promise = require("bluebird");
-const path = require("path");
 const slash = require("slash");
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
   const queryAllWordpressPage = graphql(`
     query {
-      pages: allWordpressPage {
-        edges {
-          node {
-            id
-            link
+      wpgraphql {
+        pages {
+          edges {
+            node {
+              id
+              link
+            }
           }
         }
       }
@@ -19,23 +21,27 @@ exports.createPages = ({ actions, graphql }) => {
   `);
   const queryAllWordpressPost = graphql(`
     query {
-      posts: allWordpressPost {
-        edges {
-          node {
-            id
-            link
+      wpgraphql {
+        posts {
+          edges {
+            node {
+              id
+              link
+            }
           }
         }
       }
     }
   `);
-  const queryAllWordpressWpProjects = graphql(`
+  const queryAllWordpressProjects = graphql(`
     query {
-      projects: allWordpressWpProjects {
-        edges {
-          node {
-            id
-            link
+      wpgraphql {
+        projects {
+          edges {
+            node {
+              id
+              link
+            }
           }
         }
       }
@@ -44,14 +50,15 @@ exports.createPages = ({ actions, graphql }) => {
   const getPages = new Promise((resolve, reject) => {
     queryAllWordpressPage.then(result => {
       if (result.errors) {
+        // eslint-disable-next-line no-console
         console.log(result.errors);
         reject(result.errors);
       }
       const PageContainer = path.resolve("./src/templates/PageTemplate.js");
-      _.each(result.data.pages.edges, ({ node }) => {
+      _.each(result.data.wpgraphql.pages.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
-          path: link,
+          path: link.replace("https://wordpress.carpetelam.com/", "/"),
           component: slash(PageContainer),
           context: { id }
         });
@@ -62,14 +69,18 @@ exports.createPages = ({ actions, graphql }) => {
   const getPosts = new Promise((resolve, reject) => {
     queryAllWordpressPost.then(result => {
       if (result.errors) {
+        // eslint-disable-next-line no-console
         console.log(result.errors);
         reject(result.errors);
       }
       const PostContainer = path.resolve("./src/templates/PostTemplate.js");
-      _.each(result.data.posts.edges, ({ node }) => {
+      _.each(result.data.wpgraphql.posts.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
-          path: `/blog${link}`,
+          path: `/blog${link.replace(
+            "https://wordpress.carpetelam.com/",
+            "/"
+          )}`,
           component: slash(PostContainer),
           context: { id }
         });
@@ -78,18 +89,19 @@ exports.createPages = ({ actions, graphql }) => {
     });
   });
   const getProjects = new Promise((resolve, reject) => {
-    queryAllWordpressWpProjects.then(result => {
+    queryAllWordpressProjects.then(result => {
       if (result.errors) {
+        // eslint-disable-next-line no-console
         console.log(result.errors);
         reject(result.errors);
       }
       const ProjectContainer = path.resolve(
         "./src/templates/ProjectTemplate.js"
       );
-      _.each(result.data.projects.edges, ({ node }) => {
+      _.each(result.data.wpgraphql.projects.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
-          path: link,
+          path: link.replace("https://wordpress.carpetelam.com/", "/"),
           component: slash(ProjectContainer),
           context: { id }
         });

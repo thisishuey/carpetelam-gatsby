@@ -10,29 +10,22 @@ function PostsContainer() {
     <StaticQuery
       query={graphql`
         query {
-          allWordpressPost {
-            edges {
-              node {
-                excerpt
-                featuredMedia: featured_media {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 600) {
-                        ...GatsbyImageSharpFluid
-                      }
-                    }
-                  }
+          wpgraphql {
+            posts {
+              edges {
+                node {
+                  excerpt
+                  id
+                  link
+                  title
                 }
-                id
-                link
-                title
               }
             }
           }
         }
       `}
-      render={({ allWordpressPost }) => {
-        const postCards = allWordpressPost.edges.map(({ node }) => {
+      render={({ wpapi: { posts } }) => {
+        const postCards = posts.edges.map(({ node }) => {
           return <PostCard key={node.id} post={node} />;
         });
         return <InfiniteScroll cards={postCards} />;
@@ -42,7 +35,11 @@ function PostsContainer() {
 }
 
 PostsContainer.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.shape({
+    wpgraphql: PropTypes.shape({
+      posts: PropTypes.object
+    })
+  })
 };
 
 export default PostsContainer;

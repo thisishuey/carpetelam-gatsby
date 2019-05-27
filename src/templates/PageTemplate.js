@@ -6,9 +6,9 @@ import Page from "../components/Page";
 import parseShortcodesInString from "../utils/parseShortcodesInString";
 
 function PageTemplate({ data }) {
-  const parsedContent = parseShortcodesInString(data.wordpressPage.content);
+  const parsedContent = parseShortcodesInString(data.wpgraphql.page.content);
   const pageData = {
-    ...data.wordpressPage,
+    ...data.wpgraphql.page,
     parsedContent
   };
   return <Page pageData={pageData} />;
@@ -20,25 +20,18 @@ PageTemplate.propTypes = {
 
 export default PageTemplate;
 
+// acf {
+//   pageTitle
+//   pageSubtitle
+// }
 export const query = graphql`
-  query($id: String!) {
-    wordpressPage(id: { eq: $id }) {
-      acf {
-        pageTitle
-        pageSubtitle
+  query($id: ID!) {
+    wpgraphql {
+      page(id: $id) {
+        content
+        id
+        title
       }
-      content
-      id
-      featuredMedia: featured_media {
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 1500) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-      title
     }
   }
 `;

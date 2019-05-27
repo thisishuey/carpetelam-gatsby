@@ -10,16 +10,23 @@ function Layout({ children }) {
     <StaticQuery
       query={graphql`
         query {
-          allWordpressWpApiMenusMenusItems(
-            filter: { slug: { eq: "primary" } }
-          ) {
-            edges {
-              node {
-                items {
-                  object_id
-                  order
-                  title
-                  url
+          wpgraphql {
+            generalSettings {
+              brand: title
+              tagline: description
+            }
+            menus(where: { slug: "primary" }) {
+              edges {
+                node {
+                  menuItems {
+                    edges {
+                      node {
+                        id
+                        title: label
+                        url
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -29,23 +36,17 @@ function Layout({ children }) {
               company
             }
           }
-          wordpressSiteMetadata {
-            description
-            name
-          }
         }
       `}
-      render={({
-        allWordpressWpApiMenusMenusItems: menus,
-        site,
-        wordpressSiteMetadata
-      }) => {
-        const { items } = menus.edges[0].node;
+      render={({ wpgraphql: { generalSettings, menus }, site }) => {
+        const items = menus.edges[0].node.menuItems.edges.map(
+          ({ node: { id, title, url } }) => ({ id, title, url })
+        );
+        const { brand, tagline } = generalSettings;
         const { company } = site.siteMetadata;
-        const { description, name } = wordpressSiteMetadata;
         return (
           <Fragment>
-            <Header brand={name} tagline={description} links={items} />
+            <Header brand={brand} tagline={tagline} links={items} />
             {children}
             <Footer company={company} />
           </Fragment>

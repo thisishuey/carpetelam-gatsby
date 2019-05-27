@@ -82,7 +82,7 @@ function Header({ brand, classes, links, tagline }) {
           <Hidden xsDown> &ndash; {tagline}</Hidden>
         </Typography>
         <nav className={sectionDesktop}>
-          {links.map(({ object_id: key, title, url }) => {
+          {links.map(({ id, title, url }) => {
             const NavLink = props => (
               <Link
                 {...props}
@@ -91,7 +91,7 @@ function Header({ brand, classes, links, tagline }) {
                     active: isCurrent || (href !== "/" && isPartiallyCurrent)
                   })
                 })}
-                to={url}
+                to={url.replace("https://wordpress.carpetelam.com/", "/")}
               />
             );
             return (
@@ -99,7 +99,7 @@ function Header({ brand, classes, links, tagline }) {
                 className={navLink}
                 color="inherit"
                 component={NavLink}
-                key={key}
+                key={id}
               >
                 {title}
               </Button>
@@ -116,11 +116,10 @@ function Header({ brand, classes, links, tagline }) {
             onClose={() => setOpen(false)}
             open={open}
           >
-            <nav
+            <button
               tabIndex={0}
               onClick={() => setOpen(false)}
               onKeyDown={() => setOpen(false)}
-              role="button"
             >
               <List className={menuList}>
                 {links.map(({ object_id: key, title, url }) => {
@@ -146,7 +145,7 @@ function Header({ brand, classes, links, tagline }) {
                   );
                 })}
               </List>
-            </nav>
+            </button>
           </Drawer>
         </div>
       </Toolbar>
@@ -157,6 +156,8 @@ function Header({ brand, classes, links, tagline }) {
 Header.propTypes = {
   brand: PropTypes.string,
   classes: PropTypes.object,
+  //eslint-disable-next-line react/no-unused-prop-types
+  className: PropTypes.object,
   links: PropTypes.array,
   tagline: PropTypes.string
 };

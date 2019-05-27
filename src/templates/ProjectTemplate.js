@@ -6,13 +6,9 @@ import Page from "../components/Page";
 import parseShortcodesInString from "../utils/parseShortcodesInString";
 
 function ProjectContainer({ data }) {
-  const parsedContent = parseShortcodesInString(
-    data.wordpressWpProjects.content
-  );
-  const pageData = {
-    ...data.wordpressWpProjects,
-    parsedContent
-  };
+  const { project } = data.wpgraphql;
+  const parsedContent = parseShortcodesInString(project.content);
+  const pageData = { ...project, parsedContent };
   return <Page pageData={pageData} />;
 }
 
@@ -23,20 +19,13 @@ ProjectContainer.propTypes = {
 export default ProjectContainer;
 
 export const query = graphql`
-  query($id: String!) {
-    wordpressWpProjects(id: { eq: $id }) {
-      content
-      id
-      featuredMedia: featured_media {
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 1500) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+  query($id: ID!) {
+    wpgraphql {
+      project(id: $id) {
+        content
+        id
+        title
       }
-      title
     }
   }
 `;

@@ -14,6 +14,28 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "UA-33919615-3"
+      }
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "carpetelam-gatsby",
+        /* eslint-disable babel/camelcase */
+        short_name: "carpetelam",
+        start_url: "/",
+        background_color: "#663399",
+        theme_color: "#663399",
+        /* eslint-enable babel/camelcase */
+        display: "minimal-ui",
+        icon: "src/images/ipsum.png" // This path is relative to the root of the site.
+      }
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -21,37 +43,12 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: "gatsby-source-graphql",
       options: {
-        name: "carpetelam-gatsby",
-        short_name: "carpetelam",
-        start_url: "/",
-        background_color: "#663399",
-        theme_color: "#663399",
-        display: "minimal-ui",
-        icon: "src/images/ipsum.png" // This path is relative to the root of the site.
-      }
-    },
-    {
-      resolve: "gatsby-source-wordpress",
-      options: {
-        baseUrl: "carpetelam-com.carpetelam.net",
-        protocol: "https",
-        hostingWPCOM: false,
-        verboseOutput: false,
-        searchAndReplaceContentUrls: {
-          sourceUrl: "https://carpetelam-com.carpetelam.net/",
-          replacementUrl: "/"
-        },
-        excludedRoutes: [
-          "/ithemes-security/**",
-          "**/*/*/users/me",
-          "**/*/*/settings",
-          "**/*/*/themes"
-        ]
+        typeName: "WPGraphQL",
+        fieldName: "wpgraphql",
+        url: "https://wordpress.carpetelam.com/graphql"
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

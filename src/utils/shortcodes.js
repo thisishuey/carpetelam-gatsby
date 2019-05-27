@@ -1,7 +1,7 @@
 import ContactForm from "../components/ContactForm";
-import PostsContainer from "../containers/PostsContainer.js";
-import ProjectsContainer from "../containers/ProjectsContainer.js";
-import ServicesContainer from "../containers/ServicesContainer.js";
+import PostsContainer from "../containers/PostsContainer";
+import ProjectsContainer from "../containers/ProjectsContainer";
+import ServicesContainer from "../containers/ServicesContainer";
 
 export const shortcodesBrackets = {
   "gatsby-contact-form": {

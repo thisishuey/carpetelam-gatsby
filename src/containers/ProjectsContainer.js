@@ -9,28 +9,34 @@ function ProjectsContainer() {
     <StaticQuery
       query={graphql`
         query {
-          allWordpressWpProjects(sort: { fields: [menu_order], order: ASC }) {
-            edges {
-              node {
-                content
-                id
-                link
-                title
+          wpgraphql {
+            projects {
+              edges {
+                node {
+                  content
+                  id
+                  link
+                  menuOrder
+                  title
+                }
               }
             }
           }
         }
       `}
-      render={({ allWordpressWpProjects }) => {
-        const projects = allWordpressWpProjects.edges.map(edge => edge.node);
-        return <LinkList items={projects} />;
+      render={({ wpgraphql: { projects } }) => {
+        return <LinkList items={projects.edges.map(edge => edge.node)} />;
       }}
     />
   );
 }
 
 ProjectsContainer.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.shape({
+    wpgraphql: PropTypes.shape({
+      projects: PropTypes.object
+    })
+  })
 };
 
 export default ProjectsContainer;

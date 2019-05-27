@@ -15,19 +15,12 @@ function SEO({ author, description, keywords, lang, meta, title }) {
               author
             }
           }
-          wordpressSiteMetadata {
-            name
-            description
-          }
         }
       `}
-      render={({ site, wordpressSiteMetadata }) => {
+      render={({ site }) => {
         const metaAuthor = author || site.siteMetadata.author;
-        const metaDescription =
-          description ||
-          wordpressSiteMetadata.description ||
-          site.siteMetadata.description;
-        const metaTitle = wordpressSiteMetadata.name || site.siteMetadata.title;
+        const metaDescription = description || site.siteMetadata.description;
+        const metaTitle = site.siteMetadata.title;
         return (
           <Helmet
             htmlAttributes={{

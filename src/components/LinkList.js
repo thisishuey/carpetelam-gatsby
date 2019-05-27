@@ -14,7 +14,11 @@ function ProjectsContainer({ items }) {
       {items.map(({ content, id, link, title }) => {
         return (
           <Fragment key={id}>
-            <ListItem alignItems="flex-start" component={Link} to={link}>
+            <ListItem
+              alignItems="flex-start"
+              component={Link}
+              to={link.replace("https://wordpress.carpetelam.com", "/")}
+            >
               <ListItemText>
                 <Typography
                   dangerouslySetInnerHTML={{ __html: title }}
