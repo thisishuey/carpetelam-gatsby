@@ -19,7 +19,10 @@ function ProjectsContainer({ items }) {
                   dangerouslySetInnerHTML={{ __html: title }}
                   variant="h5"
                 />
-                <Typography dangerouslySetInnerHTML={{ __html: content }} />
+                <Typography
+                  component="div"
+                  dangerouslySetInnerHTML={{ __html: content }}
+                />
               </ListItemText>
             </ListItem>
             <Divider />

@@ -11,7 +11,7 @@ const NotFoundPage = () => (
     <Seo title="404: Not found" />
     <Parallax pageSubtitle="Not Found" pageTitle="404" />
     <Typography component={Paper} variant="body1">
-      The page you&apos;re trying to access does not exist, please check the
+      The page you&#8217;re trying to access does not exist, please check the
       address or use the navigation at the top of the page to access the rest of
       the site.
     </Typography>

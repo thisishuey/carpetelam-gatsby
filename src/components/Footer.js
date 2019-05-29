@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 function Footer({ company }) {
   const { footer } = useStyles();
   return (
-    <Typography className={footer}>
+    <Typography className={footer} component="footer">
       © {new Date().getFullYear()}, {company}. Headless CMS powered by{" "}
       <Link
         href="https://wordpress.org/"
