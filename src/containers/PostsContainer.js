@@ -18,13 +18,16 @@ function PostsContainer() {
                   id
                   link
                   title
+                  featuredImage {
+                    sourceUrl
+                  }
                 }
               }
             }
           }
         }
       `}
-      render={({ wpapi: { posts } }) => {
+      render={({ wpgraphql: { posts } }) => {
         const postCards = posts.edges.map(({ node }) => {
           return <PostCard key={node.id} post={node} />;
         });

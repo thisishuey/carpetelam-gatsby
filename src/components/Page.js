@@ -1,41 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
-import createStyles from "@material-ui/core/styles/createStyles";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
 import { shortcodes } from "../utils/shortcodes";
-import withRoot from "../utils/withRoot";
 import Layout from "./Layout";
 import Parallax from "./Parallax";
 import Seo from "./SEO";
 
-function styles(theme) {
-  return createStyles({
-    wpContent: {
-      margin: theme.spacing.unit * 2,
-      marginTop: theme.spacing.unit * -8,
-      padding: theme.spacing.unit * 2,
-      [theme.breakpoints.up("md")]: {
-        margin: theme.spacing.unit * 4,
-        marginTop: theme.spacing.unit * -8,
-        padding: theme.spacing.unit * 12
-      },
-      "& h1": { ...theme.typography.h1 },
-      "& h2": { ...theme.typography.h2 },
-      "& h3": { ...theme.typography.h3 },
-      "& h4": { ...theme.typography.h4 },
-      "& h5": { ...theme.typography.h5 },
-      "& h6": { ...theme.typography.h6 },
-      "& a": { color: theme.palette.primary.main, textDecoration: "none" }
-    }
-  });
-}
+const useStyles = makeStyles(theme => ({
+  wpContent: {
+    margin: theme.spacing(2),
+    marginTop: theme.spacing(-8),
+    padding: theme.spacing(2),
+    [theme.breakpoints.up("md")]: {
+      margin: theme.spacing(4),
+      marginTop: theme.spacing(-8),
+      padding: theme.spacing(12)
+    },
+    "& h1": { ...theme.typography.h1 },
+    "& h2": { ...theme.typography.h2 },
+    "& h3": { ...theme.typography.h3 },
+    "& h4": { ...theme.typography.h4 },
+    "& h5": { ...theme.typography.h5 },
+    "& h6": { ...theme.typography.h6 },
+    "& a": { color: theme.palette.primary.main, textDecoration: "none" }
+  }
+}));
 
-function Page({ classes, pageData }) {
-  const { wpContent } = classes;
-  const { acf = {}, id, featuredMedia, parsedContent, title } = pageData;
+function Page({ pageData }) {
+  const { wpContent } = useStyles();
+  const { acf = {}, id, featuredImage, parsedContent, title } = pageData;
   const { pageSubtitle, pageTitle } = acf;
   const content = parsedContent.map((chunk, index) => {
     if (chunk.type === "string") {
@@ -64,9 +60,7 @@ function Page({ classes, pageData }) {
     <Layout>
       <Seo title={title} />
       <Parallax
-        backgroundImageSrc={
-          featuredMedia && featuredMedia.localFile.childImageSharp.fluid.src
-        }
+        backgroundImageSrc={featuredImage && featuredImage.sourceUrl}
         pageTitle={pageTitle || title}
         pageSubtitle={pageSubtitle}
       />
@@ -78,8 +72,7 @@ function Page({ classes, pageData }) {
 }
 
 Page.propTypes = {
-  classes: PropTypes.object,
   pageData: PropTypes.object.isRequired // TODO: add shape to pageData
 };
 
-export default withRoot(withStyles(styles)(Page));
+export default Page;

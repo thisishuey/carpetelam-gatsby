@@ -1,29 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
-import createStyles from "@material-ui/core/styles/createStyles";
-import withStyles from "@material-ui/core/styles/withStyles";
-import Link from "@material-ui/core/Link";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import { Link, Typography } from "@material-ui/core";
 
-function styles(theme) {
-  return createStyles({
-    footer: {
-      color: theme.palette.text,
-      margin: theme.spacing.unit * 2,
-      textAlign: "left",
-      width: "auto",
-      [theme.breakpoints.up("md")]: {
-        margin: theme.spacing.unit * 4,
-        textAlign: "right"
-      }
+const useStyles = makeStyles(theme => ({
+  footer: {
+    color: theme.palette.text,
+    margin: theme.spacing(2),
+    textAlign: "left",
+    width: "auto",
+    [theme.breakpoints.up("md")]: {
+      margin: theme.spacing(4),
+      textAlign: "right"
     }
-  });
-}
+  }
+}));
 
-function Footer({ classes, company }) {
-  const { footer } = classes;
+function Footer({ company }) {
+  const { footer } = useStyles();
   return (
-    <Typography className={footer} component="footer">
+    <Typography className={footer}>
       © {new Date().getFullYear()}, {company}. Headless CMS powered by{" "}
       <Link
         href="https://wordpress.org/"
@@ -46,8 +42,7 @@ function Footer({ classes, company }) {
 }
 
 Footer.propTypes = {
-  classes: PropTypes.object,
   company: PropTypes.string.isRequired
 };
 
-export default withStyles(styles)(Footer);
+export default Footer;

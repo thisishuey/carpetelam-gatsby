@@ -13,6 +13,8 @@ module.exports = {
     company: "Carpe Telam, LLC"
   },
   plugins: [
+    "gatsby-plugin-material-ui",
+    "gatsby-plugin-playground",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",

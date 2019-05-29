@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
 import classNames from "classnames";
-import createStyles from "@material-ui/core/styles/createStyles";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
@@ -17,71 +15,69 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
 
-function styles(theme) {
-  return createStyles({
-    centerContent: {
-      width: "auto",
-      marginLeft: theme.spacing.unit,
-      marginRight: theme.spacing.unit,
+import Link from "./Link";
+
+const useStyles = makeStyles(theme => ({
+  appBar: {
+    opacity: "0.9"
+  },
+  centerContent: {
+    width: "auto",
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    [theme.breakpoints.up("md")]: {
+      marginLeft: theme.spacing(12),
+      marginRight: theme.spacing(12)
+    }
+  },
+  logo: {
+    flexGrow: 1,
+    textDecoration: "none"
+  },
+  menuList: {
+    width: 250
+  },
+  navLink: {
+    "&.active": {
+      background: theme.palette.secondary.light,
       [theme.breakpoints.up("md")]: {
-        marginLeft: theme.spacing.unit * 12,
-        marginRight: theme.spacing.unit * 12
-      }
-    },
-    logo: {
-      flexGrow: 1,
-      textDecoration: "none"
-    },
-    menuList: {
-      width: 250
-    },
-    navLink: {
-      "&.active": {
-        background: theme.palette.secondary.light,
-        [theme.breakpoints.up("md")]: {
-          background: theme.palette.secondary.dark
-        }
-      }
-    },
-    sectionDesktop: {
-      display: "none",
-      [theme.breakpoints.up("md")]: {
-        display: "flex"
-      }
-    },
-    sectionMobile: {
-      display: "flex",
-      [theme.breakpoints.up("md")]: {
-        display: "none"
+        background: theme.palette.secondary.dark
       }
     }
-  });
-}
+  },
+  sectionDesktop: {
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex"
+    }
+  },
+  sectionMobile: {
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none"
+    }
+  }
+}));
 
-function Header({ brand, classes, links, tagline }) {
+function Header({ brand, links, tagline }) {
   const [open, setOpen] = useState(false);
   const {
+    appBar,
     centerContent,
     logo,
     menuList,
     navLink,
     sectionDesktop,
     sectionMobile
-  } = classes;
-  const BrandLink = props => <Link {...props} to="/" />;
+  } = useStyles();
   return (
-    <AppBar color="secondary" position="sticky">
+    <AppBar className={appBar} color="secondary" position="sticky">
       <Toolbar className={centerContent}>
-        <Typography
-          className={logo}
-          color="inherit"
-          component={BrandLink}
-          variant="h6"
-        >
+        <Typography className={logo} color="inherit" variant="h6">
           {brand}
           <Hidden xsDown> &ndash; {tagline}</Hidden>
         </Typography>
-        <nav className={sectionDesktop}>
+        <div className={sectionDesktop}>
           {links.map(({ id, title, url }) => {
             const NavLink = props => (
               <Link
@@ -91,7 +87,7 @@ function Header({ brand, classes, links, tagline }) {
                     active: isCurrent || (href !== "/" && isPartiallyCurrent)
                   })
                 })}
-                to={url.replace("https://wordpress.carpetelam.com/", "/")}
+                to={`/${url.replace("https://wordpress.carpetelam.com/", "")}`}
               />
             );
             return (
@@ -105,7 +101,7 @@ function Header({ brand, classes, links, tagline }) {
               </Button>
             );
           })}
-        </nav>
+        </div>
         <div className={sectionMobile}>
           <IconButton color="inherit" onClick={() => setOpen(true)}>
             <MenuIcon />
@@ -116,13 +112,13 @@ function Header({ brand, classes, links, tagline }) {
             onClose={() => setOpen(false)}
             open={open}
           >
-            <button
+            <Button
               tabIndex={0}
               onClick={() => setOpen(false)}
               onKeyDown={() => setOpen(false)}
             >
               <List className={menuList}>
-                {links.map(({ object_id: key, title, url }) => {
+                {links.map(({ id, title, url }) => {
                   const NavLink = props => (
                     <Link
                       {...props}
@@ -132,11 +128,14 @@ function Header({ brand, classes, links, tagline }) {
                             isCurrent || (href !== "/" && isPartiallyCurrent)
                         })
                       })}
-                      to={url}
+                      to={`/${url.replace(
+                        "https://wordpress.carpetelam.com/",
+                        ""
+                      )}`}
                     />
                   );
                   return (
-                    <li key={key}>
+                    <li key={id}>
                       <ListItem button className={navLink} component={NavLink}>
                         <ListItemText primary={title} />
                       </ListItem>
@@ -145,7 +144,7 @@ function Header({ brand, classes, links, tagline }) {
                   );
                 })}
               </List>
-            </button>
+            </Button>
           </Drawer>
         </div>
       </Toolbar>
@@ -155,7 +154,6 @@ function Header({ brand, classes, links, tagline }) {
 
 Header.propTypes = {
   brand: PropTypes.string,
-  classes: PropTypes.object,
   //eslint-disable-next-line react/no-unused-prop-types
   className: PropTypes.object,
   links: PropTypes.array,
@@ -167,4 +165,4 @@ Header.defaultProps = {
   links: []
 };
 
-export default withStyles(styles)(Header);
+export default Header;

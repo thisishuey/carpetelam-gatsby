@@ -4,19 +4,18 @@ import Typography from "@material-ui/core/Typography";
 
 import Layout from "../components/Layout";
 import Parallax from "../components/Parallax";
-import SEO from "../components/SEO";
-import withRoot from "../utils/withRoot";
+import Seo from "../components/SEO";
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" />
+    <Seo title="404: Not found" />
     <Parallax pageSubtitle="Not Found" pageTitle="404" />
     <Typography component={Paper} variant="body1">
-      The page you're trying to access does not exist, please check the address
-      or use the navigation at the top of the page to access the rest of the
-      site.
+      The page you&apos;re trying to access does not exist, please check the
+      address or use the navigation at the top of the page to access the rest of
+      the site.
     </Typography>
   </Layout>
 );
 
-export default withRoot(NotFoundPage);
+export default NotFoundPage;

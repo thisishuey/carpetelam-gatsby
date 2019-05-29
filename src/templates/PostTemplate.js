@@ -6,11 +6,9 @@ import Page from "../components/Page";
 import parseShortcodesInString from "../utils/parseShortcodesInString";
 
 function PostContainer({ data }) {
-  const parsedContent = parseShortcodesInString(data.wordpressPost.content);
-  const pageData = {
-    ...data.wordpressPost,
-    parsedContent
-  };
+  const { post } = data.wpgraphql;
+  const parsedContent = parseShortcodesInString(post.content);
+  const pageData = { ...post, parsedContent };
   return <Page pageData={pageData} />;
 }
 
@@ -27,6 +25,9 @@ export const query = graphql`
         content
         id
         title
+        featuredImage {
+          sourceUrl
+        }
       }
     }
   }

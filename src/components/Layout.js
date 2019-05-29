@@ -15,18 +15,12 @@ function Layout({ children }) {
               brand: title
               tagline: description
             }
-            menus(where: { slug: "primary" }) {
-              edges {
-                node {
-                  menuItems {
-                    edges {
-                      node {
-                        id
-                        title: label
-                        url
-                      }
-                    }
-                  }
+            menu(id: "TWVudTo5NQ==") {
+              menuItems {
+                nodes {
+                  id
+                  title: label
+                  url
                 }
               }
             }
@@ -38,15 +32,13 @@ function Layout({ children }) {
           }
         }
       `}
-      render={({ wpgraphql: { generalSettings, menus }, site }) => {
-        const items = menus.edges[0].node.menuItems.edges.map(
-          ({ node: { id, title, url } }) => ({ id, title, url })
-        );
+      render={({ wpgraphql: { generalSettings, menu }, site }) => {
+        const links = menu.menuItems.nodes;
         const { brand, tagline } = generalSettings;
         const { company } = site.siteMetadata;
         return (
           <Fragment>
-            <Header brand={brand} tagline={tagline} links={items} />
+            <Header brand={brand} tagline={tagline} links={links} />
             {children}
             <Footer company={company} />
           </Fragment>

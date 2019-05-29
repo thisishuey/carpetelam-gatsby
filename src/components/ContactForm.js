@@ -1,21 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import createStyles from "@material-ui/core/styles/createStyles";
-import withStyles from "@material-ui/core/styles/withStyles";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+import { Button, Grid, TextField } from "@material-ui/core";
 
-function styles() {
-  return createStyles({
-    honeypot: {
-      display: "none"
-    }
-  });
-}
+const useStyles = makeStyles({
+  honeypot: {
+    display: "none"
+  }
+});
 
-function GatsbyContactForm({ classes, named = {} }) {
-  const { honeypot } = classes;
+function GatsbyContactForm({ named = {} }) {
+  const { honeypot } = useStyles();
   const { name } = named;
   return (
     <form
@@ -26,7 +21,7 @@ function GatsbyContactForm({ classes, named = {} }) {
       {...named}
     >
       <input type="hidden" name="form-name" value={name} />
-      <Grid container spacing={16}>
+      <Grid container spacing={2}>
         <Grid item sm={6} xs={12}>
           <TextField
             fullWidth
@@ -97,4 +92,4 @@ GatsbyContactForm.propTypes = {
   named: PropTypes.object
 };
 
-export default withStyles(styles)(GatsbyContactForm);
+export default GatsbyContactForm;

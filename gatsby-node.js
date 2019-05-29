@@ -58,7 +58,7 @@ exports.createPages = ({ actions, graphql }) => {
       _.each(result.data.wpgraphql.pages.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
-          path: link.replace("https://wordpress.carpetelam.com/", "/"),
+          path: `/${link.replace("https://wordpress.carpetelam.com/", "")}`,
           component: slash(PageContainer),
           context: { id }
         });
@@ -77,9 +77,9 @@ exports.createPages = ({ actions, graphql }) => {
       _.each(result.data.wpgraphql.posts.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
-          path: `/blog${link.replace(
+          path: `/blog/${link.replace(
             "https://wordpress.carpetelam.com/",
-            "/"
+            ""
           )}`,
           component: slash(PostContainer),
           context: { id }
@@ -101,7 +101,7 @@ exports.createPages = ({ actions, graphql }) => {
       _.each(result.data.wpgraphql.projects.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
-          path: link.replace("https://wordpress.carpetelam.com/", "/"),
+          path: `/${link.replace("https://wordpress.carpetelam.com/", "")}`,
           component: slash(ProjectContainer),
           context: { id }
         });

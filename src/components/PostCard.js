@@ -1,39 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import createStyles from "@material-ui/core/styles/createStyles";
-import withStyles from "@material-ui/core/styles/withStyles";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 
-function styles(theme) {
-  return createStyles({
-    cardActions: {},
-    cardMedia: {
-      backgroundColor: theme.palette.secondary.light,
-      height: 140
-    }
-  });
-}
-
-function PostCard({ classes, post }) {
-  const { cardActions, cardMedia } = classes;
-  const { excerpt, featuredMedia, link, title } = post;
+function PostCard({ post }) {
+  const { excerpt, link, title } = post;
   return (
     <Card>
       <CardActionArea>
-        <CardMedia
-          className={cardMedia}
-          image={
-            featuredMedia && featuredMedia.localFile.childImageSharp.fluid.src
-          }
-          title={title}
-        />
         <CardContent>
           <Typography
             dangerouslySetInnerHTML={{ __html: title }}
@@ -42,12 +21,12 @@ function PostCard({ classes, post }) {
           <Typography dangerouslySetInnerHTML={{ __html: excerpt }} />
         </CardContent>
       </CardActionArea>
-      <CardActions className={cardActions}>
+      <CardActions>
         <Button
           color="primary"
           component={Link}
           size="small"
-          to={`/blog${link}`}
+          to={`/blog/${link.replace("https://wordpress.carpetelam.com/", "")}`}
         >
           Read More &raquo;
         </Button>
@@ -57,8 +36,7 @@ function PostCard({ classes, post }) {
 }
 
 PostCard.propTypes = {
-  classes: PropTypes.object,
   post: PropTypes.object
 };
 
-export default withStyles(styles)(PostCard);
+export default PostCard;

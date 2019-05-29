@@ -1,29 +1,10 @@
-const React = require("react");
-const { renderToString } = require("react-dom/server");
-const JssProvider = require("react-jss/lib/JssProvider").default;
+/* eslint-disable import/prefer-default-export, react/prop-types */
+import React from "react";
 
-const getPageContext = require("./src/utils/getPageContext").default;
+import MuiLayout from "./src/utils/MuiLayout";
 
-function replaceRenderer({
-  bodyComponent,
-  replaceBodyHTMLString,
-  setHeadComponents
-}) {
-  const { sheetsRegistry } = getPageContext();
-
-  const bodyHTML = renderToString(
-    <JssProvider registry={sheetsRegistry}>{bodyComponent}</JssProvider>
-  );
-
-  replaceBodyHTMLString(bodyHTML);
-  setHeadComponents([
-    <style
-      type="text/css"
-      id="jss-server-side"
-      key="jss-server-side"
-      dangerouslySetInnerHTML={{ __html: sheetsRegistry.toString() }}
-    />
-  ]);
+function wrapRootElement({ element }) {
+  return <MuiLayout>{element}</MuiLayout>;
 }
 
-exports.replaceRenderer = replaceRenderer;
+export { wrapRootElement };

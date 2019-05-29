@@ -1,22 +1,21 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 
-function ProjectsContainer({ items }) {
+import ListItemLink from "./ListItemLink";
+
+function LinkList({ items }) {
   return (
     <List>
       <Divider />
       {items.map(({ content, id, link, title }) => {
         return (
           <Fragment key={id}>
-            <ListItem
+            <ListItemLink
               alignItems="flex-start"
-              component={Link}
               to={link.replace("https://wordpress.carpetelam.com", "/")}
             >
               <ListItemText>
@@ -24,12 +23,9 @@ function ProjectsContainer({ items }) {
                   dangerouslySetInnerHTML={{ __html: title }}
                   variant="h5"
                 />
-                <Typography
-                  component="div"
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
+                <Typography dangerouslySetInnerHTML={{ __html: content }} />
               </ListItemText>
-            </ListItem>
+            </ListItemLink>
             <Divider />
           </Fragment>
         );
@@ -38,8 +34,8 @@ function ProjectsContainer({ items }) {
   );
 }
 
-ProjectsContainer.propTypes = {
+LinkList.propTypes = {
   items: PropTypes.object
 };
 
-export default ProjectsContainer;
+export default LinkList;

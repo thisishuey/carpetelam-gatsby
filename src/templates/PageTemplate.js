@@ -6,11 +6,9 @@ import Page from "../components/Page";
 import parseShortcodesInString from "../utils/parseShortcodesInString";
 
 function PageTemplate({ data }) {
-  const parsedContent = parseShortcodesInString(data.wpgraphql.page.content);
-  const pageData = {
-    ...data.wpgraphql.page,
-    parsedContent
-  };
+  const { page } = data.wpgraphql;
+  const parsedContent = parseShortcodesInString(page.content);
+  const pageData = { ...page, parsedContent };
   return <Page pageData={pageData} />;
 }
 
@@ -31,6 +29,9 @@ export const query = graphql`
         content
         id
         title
+        featuredImage {
+          sourceUrl
+        }
       }
     }
   }
