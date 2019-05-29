@@ -19,7 +19,7 @@ import Link from "./Link";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
-    opacity: "0.9"
+    opacity: "0.75"
   },
   centerContent: {
     width: "auto",
