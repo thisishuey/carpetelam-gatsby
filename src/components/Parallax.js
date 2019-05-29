@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     height: "65vh",
     justifyContent: "center",
+    marginTop: theme.spacing(-8),
     padding: theme.spacing(2),
     maxHeight: "650px",
     minHeight: "65vh",
