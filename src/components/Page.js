@@ -31,8 +31,8 @@ const useStyles = makeStyles(theme => ({
 
 function Page({ pageData }) {
   const { wpContent } = useStyles();
-  const { acf = {}, id, featuredImage, parsedContent, title } = pageData;
-  const { pageSubtitle, pageTitle } = acf;
+  const { pageFields = {}, id, featuredImage, parsedContent, title } = pageData;
+  const { subtitle } = pageFields;
   const content = parsedContent.map((chunk, index) => {
     if (chunk.type === "string") {
       return (
@@ -61,8 +61,8 @@ function Page({ pageData }) {
       <Seo title={title} />
       <Parallax
         backgroundImageSrc={featuredImage && featuredImage.sourceUrl}
-        pageTitle={pageTitle || title}
-        pageSubtitle={pageSubtitle}
+        pageTitle={title}
+        pageSubtitle={subtitle}
       />
       <Typography className={wpContent} component={Paper}>
         {content}

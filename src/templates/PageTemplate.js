@@ -18,20 +18,19 @@ PageTemplate.propTypes = {
 
 export default PageTemplate;
 
-// acf {
-//   pageTitle
-//   pageSubtitle
-// }
 export const query = graphql`
   query($id: ID!) {
     wpgraphql {
       page(id: $id) {
         content
-        id
-        title
         featuredImage {
           sourceUrl
         }
+        id
+        pageFields {
+          subtitle
+        }
+        title
       }
     }
   }
