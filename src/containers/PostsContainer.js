@@ -12,25 +12,20 @@ function PostsContainer() {
         query {
           wpgraphql {
             posts {
-              edges {
-                node {
-                  excerpt
-                  id
-                  link
-                  title
-                  featuredImage {
-                    sourceUrl
-                  }
-                }
+              nodes {
+                excerpt
+                id
+                link
+                title
               }
             }
           }
         }
       `}
       render={({ wpgraphql: { posts } }) => {
-        const postCards = posts.edges.map(({ node }) => {
-          return <PostCard key={node.id} post={node} />;
-        });
+        const postCards = posts.nodes.map(node => (
+          <PostCard key={node.id} post={node} />
+        ));
         return <InfiniteScroll cards={postCards} />;
       }}
     />
