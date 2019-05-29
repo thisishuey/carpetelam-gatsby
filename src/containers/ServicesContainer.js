@@ -11,19 +11,24 @@ function ServicesContainer() {
         query {
           wpgraphql {
             services {
-              edges {
-                node {
-                  content
-                  id
-                  title
-                }
+              nodes {
+                content
+                id
+                menuOrder
+                title
               }
             }
           }
         }
       `}
       render={({ wpgraphql: { services } }) => {
-        return <ItemList items={services.edges.map(edge => edge.node)} />;
+        return (
+          <ItemList
+            items={services.nodes
+              .slice()
+              .sort((a, b) => a.menuOrder - b.menuOrder)}
+          />
+        );
       }}
     />
   );

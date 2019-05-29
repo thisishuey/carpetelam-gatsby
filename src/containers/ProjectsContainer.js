@@ -11,21 +11,25 @@ function ProjectsContainer() {
         query {
           wpgraphql {
             projects {
-              edges {
-                node {
-                  content
-                  id
-                  link
-                  menuOrder
-                  title
-                }
+              nodes {
+                content
+                id
+                link
+                menuOrder
+                title
               }
             }
           }
         }
       `}
       render={({ wpgraphql: { projects } }) => {
-        return <LinkList items={projects.edges.map(edge => edge.node)} />;
+        return (
+          <LinkList
+            items={projects.nodes
+              .slice()
+              .sort((a, b) => a.menuOrder - b.menuOrder)}
+          />
+        );
       }}
     />
   );
