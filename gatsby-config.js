@@ -19,9 +19,22 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        trackingId: "UA-33919615-3"
+        id: "GTM-TC7FH4P"
+      }
+    },
+    {
+      resolve: "gatsby-plugin-iubenda-cookie-footer",
+      options: {
+        iubendaOptions: {
+          banner: {
+            position: "bottom"
+          },
+          cookiePolicyId: 84963270,
+          lang: "en",
+          siteId: 1599973
+        }
       }
     },
     {
@@ -35,7 +48,7 @@ module.exports = {
         theme_color: "#663399",
         /* eslint-enable babel/camelcase */
         display: "minimal-ui",
-        icon: "src/images/ipsum.png" // This path is relative to the root of the site.
+        icon: "src/images/ipsum.png"
       }
     },
     {
@@ -43,6 +56,12 @@ module.exports = {
       options: {
         name: "images",
         path: `${__dirname}/src/images`
+      }
+    },
+    {
+      resolve: "gatsby-source-iubenda",
+      options: {
+        documentIds: ["84963270"]
       }
     },
     {
