@@ -59,12 +59,6 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-source-iubenda",
-      options: {
-        documentIds: ["84963270"]
-      }
-    },
-    {
       resolve: "gatsby-source-graphql",
       options: {
         typeName: "WPGraphQL",
