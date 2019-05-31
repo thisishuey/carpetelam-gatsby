@@ -77,3 +77,6 @@ tags
 # cypress
 cypress/screenshots
 cypress/videos
+
+# Gatsby Local Plugins
+plugins
