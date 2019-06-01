@@ -10,6 +10,21 @@ function Layout({ children }) {
     <StaticQuery
       query={graphql`
         query {
+          allCookiePolicy {
+            nodes {
+              content
+            }
+          }
+          allPrivacyPolicy {
+            nodes {
+              content
+            }
+          }
+          site {
+            siteMetadata {
+              company
+            }
+          }
           wpgraphql {
             generalSettings {
               brand: title
@@ -25,14 +40,14 @@ function Layout({ children }) {
               }
             }
           }
-          site {
-            siteMetadata {
-              company
-            }
-          }
         }
       `}
-      render={({ wpgraphql: { generalSettings, menu }, site }) => {
+      render={({
+        allCookiePolicy,
+        allPrivacyPolicy,
+        site,
+        wpgraphql: { generalSettings, menu }
+      }) => {
         const links = menu.menuItems.nodes;
         const { brand, tagline } = generalSettings;
         const { company } = site.siteMetadata;
@@ -40,7 +55,17 @@ function Layout({ children }) {
           <Fragment>
             <Header brand={brand} tagline={tagline} links={links} />
             {children}
-            <Footer company={company} />
+            <Footer
+              company={company}
+              cookiePolicy={
+                allCookiePolicy.nodes.filter(node => node.content !== null)[0]
+                  .content
+              }
+              privacyPolicy={
+                allPrivacyPolicy.nodes.filter(node => node.content !== null)[0]
+                  .content
+              }
+            />
           </Fragment>
         );
       }}

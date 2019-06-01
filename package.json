@@ -21,6 +21,7 @@
     "gatsby-plugin-playground": "^1.0.6",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sharp": "^2.0.20",
+    "gatsby-source-apiserver": "^2.1.1",
     "gatsby-source-filesystem": "^2.0.23",
     "gatsby-source-graphql": "^2.0.18",
     "gatsby-transformer-sharp": "^2.1.13",
@@ -73,9 +74,9 @@
   "scripts": {
     "build": "gatsby build",
     "cy:open": "cypress open",
-    "cy:test": "start-server-and-test start http://0.0.0.0:8000 cy:run",
+    "cy:test": "start-server-and-test start http://0.0.0.0:80 cy:run",
     "cy:run": "cypress run",
-    "develop": "gatsby develop -H 0.0.0.0 -p 8000",
+    "develop": "npx gatsby develop -H 0.0.0.0 -p 80",
     "serve": "gatsby serve",
     "start": "yarn develop",
     "test": "jest"

@@ -52,6 +52,20 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-apiserver",
+      options: {
+        name: "cookiePolicy",
+        url: "https://www.iubenda.com/api/privacy-policy/84963270/cookie-policy"
+      }
+    },
+    {
+      resolve: "gatsby-source-apiserver",
+      options: {
+        name: "privacyPolicy",
+        url: "https://www.iubenda.com/api/privacy-policy/84963270"
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
