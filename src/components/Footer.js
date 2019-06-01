@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link, Typography } from "@material-ui/core";
 
+import PolicyLink from "./PolicyLink";
+
 const useStyles = makeStyles(theme => ({
   footer: {
     color: theme.palette.text,
@@ -16,46 +18,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Footer({ company }) {
+function Footer({ company, cookiePolicy = "", privacyPolicy = "" }) {
   const { footer } = useStyles();
   return (
     <Typography className={footer} component="footer">
-      <Link
-        className="iubenda-nostyle no-brand iubenda-embed"
-        href="https://www.iubenda.com/privacy-policy/84963270"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Privacy Policy
-      </Link>
+      <PolicyLink
+        content={privacyPolicy}
+        link="https://www.iubenda.com/privacy-policy/84963270"
+        title="Privacy Policy"
+      />
       {" | "}
-      <Link
-        className="iubenda-nostyle no-brand iubenda-embed"
-        href="https://www.iubenda.com/privacy-policy/84963270/cookie-policy"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Cookie Policy
-      </Link>
-      <script type="text/javascript">
-        {`
-          (function(w, d) {
-            const loader = function() {
-              const s = d.createElement("script");
-              const tag = d.getElementsByTagName("script")[0];
-              s.src = "https://cdn.iubenda.com/iubenda.js";
-              tag.parentNode.insertBefore(s, tag);
-            };
-            if (w.addEventListener) {
-              w.addEventListener("load", loader, false);
-            } else if (w.attachEvent) {
-              w.attachEvent("onload", loader);
-            } else {
-              w.onload = loader;
-            }
-          })(window, document);
-        `}
-      </script>{" "}
+      <PolicyLink
+        content={cookiePolicy}
+        link="https://www.iubenda.com/privacy-policy/84963270/cookie-policy"
+        title="Cookie Policy"
+      />{" "}
       © {new Date().getFullYear()}, {company}. Headless CMS powered by{" "}
       <Link
         href="https://wordpress.org/"
@@ -78,7 +55,9 @@ function Footer({ company }) {
 }
 
 Footer.propTypes = {
-  company: PropTypes.string.isRequired
+  company: PropTypes.string.isRequired,
+  cookiePolicy: PropTypes.string,
+  privacyPolicy: PropTypes.string
 };
 
 export default Footer;
