@@ -34,6 +34,9 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     textDecoration: "none"
   },
+  logoLink: {
+    color: "inherit"
+  },
   menuList: {
     width: 250
   },
@@ -65,6 +68,7 @@ function Header({ brand, links, tagline }) {
     appBar,
     centerContent,
     logo,
+    logoLink,
     menuList,
     navLink,
     sectionDesktop,
@@ -74,8 +78,10 @@ function Header({ brand, links, tagline }) {
     <AppBar className={appBar} color="secondary" position="sticky">
       <Toolbar className={centerContent}>
         <Typography className={logo} color="inherit" variant="h6">
-          {brand}
-          <Hidden xsDown> &ndash; {tagline}</Hidden>
+          <Link className={logoLink} to="/">
+            {brand}
+            <Hidden xsDown> &ndash; {tagline}</Hidden>
+          </Link>
         </Typography>
         <div className={sectionDesktop}>
           {links.map(({ id, title, url }) => {
