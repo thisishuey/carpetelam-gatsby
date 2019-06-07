@@ -37,7 +37,7 @@ function ServicesContainer() {
 ServicesContainer.propTypes = {
   data: PropTypes.shape({
     wpgraphql: PropTypes.shape({
-      services: PropTypes.object
+      services: PropTypes.array
     })
   })
 };

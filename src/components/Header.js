@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
@@ -85,7 +85,7 @@ function Header({ brand, links, tagline }) {
         </Typography>
         <div className={sectionDesktop}>
           {links.map(({ id, title, url }) => {
-            const NavLink = props => (
+            const NavLink = forwardRef((props, ref) => (
               <Link
                 {...props}
                 getProps={({ href, isCurrent, isPartiallyCurrent }) => ({
@@ -93,9 +93,11 @@ function Header({ brand, links, tagline }) {
                     active: isCurrent || (href !== "/" && isPartiallyCurrent)
                   })
                 })}
+                innerRef={ref}
                 to={`/${url.replace("https://wordpress.carpetelam.com/", "")}`}
               />
-            );
+            ));
+            NavLink.displayName = "NavLink";
             return (
               <Button
                 className={navLink}
@@ -125,7 +127,7 @@ function Header({ brand, links, tagline }) {
             >
               <List className={menuList}>
                 {links.map(({ id, title, url }) => {
-                  const NavLink = props => (
+                  const NavLink = forwardRef((props, ref) => (
                     <Link
                       {...props}
                       getProps={({ href, isCurrent, isPartiallyCurrent }) => ({
@@ -134,12 +136,14 @@ function Header({ brand, links, tagline }) {
                             isCurrent || (href !== "/" && isPartiallyCurrent)
                         })
                       })}
+                      innerRef={ref}
                       to={`/${url.replace(
                         "https://wordpress.carpetelam.com/",
                         ""
                       )}`}
                     />
-                  );
+                  ));
+                  NavLink.displayName = "NavLink";
                   return (
                     <li key={id}>
                       <ListItem button className={navLink} component={NavLink}>

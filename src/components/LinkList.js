@@ -16,7 +16,7 @@ function LinkList({ items }) {
           <Fragment key={id}>
             <ListItemLink
               alignItems="flex-start"
-              to={link.replace("https://wordpress.carpetelam.com", "/")}
+              to={link.replace("https://wordpress.carpetelam.com", "")}
             >
               <ListItemText>
                 <Typography
@@ -38,7 +38,7 @@ function LinkList({ items }) {
 }
 
 LinkList.propTypes = {
-  items: PropTypes.object
+  items: PropTypes.array
 };
 
 export default LinkList;
