@@ -13,36 +13,37 @@ exports[`contact form matches snapshot 1`] = `
     value=""
   />
   <div
-    class="MuiGrid-container-2 MuiGrid-spacing-xs-16-25"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
   >
     <div
-      class="MuiGrid-item-3 MuiGrid-grid-xs-12-42 MuiGrid-grid-sm-6-50"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
     >
       <div
-        class="MuiFormControl-root-99 MuiFormControl-fullWidth-102"
+        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root"
       >
         <label
-          class="MuiFormLabel-root-114 MuiFormLabel-required-119 MuiInputLabel-required-107 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
+          class="MuiFormLabel-root Mui-required Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
           data-shrink="false"
           for="contact-name"
         >
           Name
           <span
-            class="MuiFormLabel-asterisk-120"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
           >
-             *
+             
+            *
           </span>
         </label>
         <div
-          class="MuiInputBase-root-134 MuiOutlinedInput-root-121 MuiInputBase-fullWidth-143 MuiInputBase-formControl-135"
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
         >
           <fieldset
             aria-hidden="true"
-            class="MuiPrivateNotchedOutline-root-151 MuiOutlinedInput-notchedOutline-128"
+            class="PrivateNotchedOutline-root-158 MuiOutlinedInput-notchedOutline"
             style="padding-left: 8px;"
           >
             <legend
-              class="MuiPrivateNotchedOutline-legend-152"
+              class="PrivateNotchedOutline-legend-159"
               style="width: 0.01px;"
             >
               <span>
@@ -52,7 +53,7 @@ exports[`contact form matches snapshot 1`] = `
           </fieldset>
           <input
             aria-invalid="false"
-            class="MuiInputBase-input-144 MuiOutlinedInput-input-129"
+            class="MuiInputBase-input MuiOutlinedInput-input"
             id="contact-name"
             name="name"
             placeholder="Princess Zelda"
@@ -64,33 +65,34 @@ exports[`contact form matches snapshot 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-item-3 MuiGrid-grid-xs-12-42 MuiGrid-grid-sm-6-50"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
     >
       <div
-        class="MuiFormControl-root-99 MuiFormControl-fullWidth-102"
+        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root"
       >
         <label
-          class="MuiFormLabel-root-114 MuiFormLabel-required-119 MuiInputLabel-required-107 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
+          class="MuiFormLabel-root Mui-required Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
           data-shrink="false"
           for="contact-email"
         >
           Email
           <span
-            class="MuiFormLabel-asterisk-120"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
           >
-             *
+             
+            *
           </span>
         </label>
         <div
-          class="MuiInputBase-root-134 MuiOutlinedInput-root-121 MuiInputBase-fullWidth-143 MuiInputBase-formControl-135"
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
         >
           <fieldset
             aria-hidden="true"
-            class="MuiPrivateNotchedOutline-root-151 MuiOutlinedInput-notchedOutline-128"
+            class="PrivateNotchedOutline-root-158 MuiOutlinedInput-notchedOutline"
             style="padding-left: 8px;"
           >
             <legend
-              class="MuiPrivateNotchedOutline-legend-152"
+              class="PrivateNotchedOutline-legend-159"
               style="width: 0.01px;"
             >
               <span>
@@ -101,7 +103,7 @@ exports[`contact form matches snapshot 1`] = `
           <input
             aria-invalid="false"
             autocomplete="email"
-            class="MuiInputBase-input-144 MuiOutlinedInput-input-129 MuiInputBase-inputType-147"
+            class="MuiInputBase-input MuiOutlinedInput-input"
             id="contact-email"
             name="email"
             placeholder="princess.zelda@hyrule.gov"
@@ -113,29 +115,29 @@ exports[`contact form matches snapshot 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-item-3 MuiGrid-grid-xs-12-42 GatsbyContactForm-honeypot-1"
+      class="MuiGrid-root makeStyles-honeypot-1 MuiGrid-item MuiGrid-grid-xs-12"
     >
       <div
-        class="MuiFormControl-root-99 MuiFormControl-fullWidth-102"
+        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root"
         placholder="404.555.1212"
       >
         <label
-          class="MuiFormLabel-root-114 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
           data-shrink="false"
           for="contact-phone"
         >
           Phone
         </label>
         <div
-          class="MuiInputBase-root-134 MuiOutlinedInput-root-121 MuiInputBase-fullWidth-143 MuiInputBase-formControl-135"
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
         >
           <fieldset
             aria-hidden="true"
-            class="MuiPrivateNotchedOutline-root-151 MuiOutlinedInput-notchedOutline-128"
+            class="PrivateNotchedOutline-root-158 MuiOutlinedInput-notchedOutline"
             style="padding-left: 8px;"
           >
             <legend
-              class="MuiPrivateNotchedOutline-legend-152"
+              class="PrivateNotchedOutline-legend-159"
               style="width: 0.01px;"
             >
               <span>
@@ -145,7 +147,7 @@ exports[`contact form matches snapshot 1`] = `
           </fieldset>
           <input
             aria-invalid="false"
-            class="MuiInputBase-input-144 MuiOutlinedInput-input-129"
+            class="MuiInputBase-input MuiOutlinedInput-input"
             id="contact-phone"
             name="phone"
             type="text"
@@ -155,33 +157,34 @@ exports[`contact form matches snapshot 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-item-3 MuiGrid-grid-xs-12-42"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
     >
       <div
-        class="MuiFormControl-root-99 MuiFormControl-fullWidth-102"
+        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root"
       >
         <label
-          class="MuiFormLabel-root-114 MuiFormLabel-required-119 MuiInputLabel-required-107 MuiInputLabel-root-103 MuiInputLabel-formControl-108 MuiInputLabel-animated-111 MuiInputLabel-outlined-113"
+          class="MuiFormLabel-root Mui-required Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
           data-shrink="false"
           for="contact-message"
         >
           Message
           <span
-            class="MuiFormLabel-asterisk-120"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
           >
-             *
+             
+            *
           </span>
         </label>
         <div
-          class="MuiInputBase-root-134 MuiOutlinedInput-root-121 MuiInputBase-fullWidth-143 MuiInputBase-formControl-135 MuiInputBase-multiline-142 MuiOutlinedInput-multiline-127"
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
         >
           <fieldset
             aria-hidden="true"
-            class="MuiPrivateNotchedOutline-root-151 MuiOutlinedInput-notchedOutline-128"
+            class="PrivateNotchedOutline-root-158 MuiOutlinedInput-notchedOutline"
             style="padding-left: 8px;"
           >
             <legend
-              class="MuiPrivateNotchedOutline-legend-152"
+              class="PrivateNotchedOutline-legend-159"
               style="width: 0.01px;"
             >
               <span>
@@ -191,7 +194,7 @@ exports[`contact form matches snapshot 1`] = `
           </fieldset>
           <textarea
             aria-invalid="false"
-            class="MuiInputBase-input-144 MuiOutlinedInput-input-129 MuiInputBase-inputMultiline-146 MuiOutlinedInput-inputMultiline-131"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
             id="contact-message"
             name="message"
             placeholder="Open your eyes... Wake up, Link."
@@ -202,21 +205,21 @@ exports[`contact form matches snapshot 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-item-3 MuiGrid-grid-xs-12-42 MuiGrid-grid-sm-3-47"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-3"
     >
       <button
-        class="MuiButtonBase-root-179 MuiButton-root-153 MuiButton-contained-164 MuiButton-containedPrimary-165 MuiButton-raised-167 MuiButton-raisedPrimary-168 MuiButton-sizeLarge-177 MuiButton-fullWidth-178"
+        class="MuiButtonBase-root MuiButton-root MuiButton-containedPrimary MuiButton-contained MuiButton-sizeLarge MuiButton-fullWidth"
         margin="normal"
         tabindex="0"
         type="submit"
       >
         <span
-          class="MuiButton-label-154"
+          class="MuiButton-label"
         >
           Send Email
         </span>
         <span
-          class="MuiTouchRipple-root-182"
+          class="MuiTouchRipple-root"
         />
       </button>
     </div>

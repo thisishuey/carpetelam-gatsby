@@ -34,7 +34,7 @@ function ProjectsContainer({ items }) {
 }
 
 ProjectsContainer.propTypes = {
-  items: PropTypes.object
+  items: PropTypes.array
 };
 
 export default ProjectsContainer;

@@ -18,18 +18,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Footer({ company, cookiePolicy = "", privacyPolicy = "" }) {
+function Footer({ company }) {
   const { footer } = useStyles();
   return (
     <Typography className={footer} component="footer">
       <PolicyLink
-        content={privacyPolicy}
+        id="privacy-policy"
         link="https://www.iubenda.com/privacy-policy/84963270"
         title="Privacy Policy"
       />
       {" | "}
       <PolicyLink
-        content={cookiePolicy}
+        id="cookie-policy"
         link="https://www.iubenda.com/privacy-policy/84963270/cookie-policy"
         title="Cookie Policy"
       />{" "}
@@ -55,9 +55,7 @@ function Footer({ company, cookiePolicy = "", privacyPolicy = "" }) {
 }
 
 Footer.propTypes = {
-  company: PropTypes.string.isRequired,
-  cookiePolicy: PropTypes.string,
-  privacyPolicy: PropTypes.string
+  company: PropTypes.string.isRequired
 };
 
 export default Footer;
