@@ -77,7 +77,7 @@
     "cy:open": "cypress open",
     "cy:test": "start-server-and-test start http://0.0.0.0:80 cy:run",
     "cy:run": "cypress run",
-    "develop": "npx gatsby develop -H 0.0.0.0 -p 80",
+    "develop": "npx gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve",
     "start": "yarn develop",
     "test": "jest"

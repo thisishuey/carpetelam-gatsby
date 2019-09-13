@@ -3,12 +3,11 @@ require("dotenv").config({
 });
 
 module.exports = {
-  __experimentalThemes: ["gatsby-theme-material-ui"],
   plugins: [
-    "gatsby-plugin-material-ui",
     "gatsby-plugin-playground",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
+    "gatsby-theme-material-ui",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-google-tagmanager",
