@@ -54,12 +54,12 @@ exports.createPages = ({ actions, graphql }) => {
         console.log(result.errors);
         reject(result.errors);
       }
-      const PageContainer = path.resolve("./src/templates/PageTemplate.js");
+      const PageTemplate = path.resolve("./src/templates/PageTemplate.js");
       _.each(result.data.wpgraphql.pages.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
           path: `/${link.replace("https://wordpress.carpetelam.com/", "")}`,
-          component: slash(PageContainer),
+          component: slash(PageTemplate),
           context: { id }
         });
       });
@@ -95,14 +95,14 @@ exports.createPages = ({ actions, graphql }) => {
         console.log(result.errors);
         reject(result.errors);
       }
-      const ProjectContainer = path.resolve(
+      const ProjectTemplate = path.resolve(
         "./src/templates/ProjectTemplate.js"
       );
       _.each(result.data.wpgraphql.projects.edges, ({ node }) => {
         const { id, link } = node;
         return createPage({
           path: `/${link.replace("https://wordpress.carpetelam.com/", "")}`,
-          component: slash(ProjectContainer),
+          component: slash(ProjectTemplate),
           context: { id }
         });
       });

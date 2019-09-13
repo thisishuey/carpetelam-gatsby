@@ -3,20 +3,11 @@ require("dotenv").config({
 });
 
 module.exports = {
-  siteMetadata: {
-    title: "Carpe Telam",
-    subtitle: "Seize the Web",
-    description:
-      "At Carpe Telam we aim to Seize the Web with quality and speed!",
-    author: 'Jeff "Huey" Huelsbeck',
-    email: "huey@carpetelam.com",
-    company: "Carpe Telam, LLC"
-  },
   plugins: [
-    "gatsby-plugin-material-ui",
     "gatsby-plugin-playground",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
+    "gatsby-theme-material-ui",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-google-tagmanager",
@@ -84,5 +75,14 @@ module.exports = {
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
     "gatsby-plugin-netlify" // this must go last
-  ]
+  ],
+  siteMetadata: {
+    title: "Carpe Telam",
+    subtitle: "Seize the Web",
+    description:
+      "At Carpe Telam we aim to Seize the Web with quality and speed!",
+    author: 'Jeff "Huey" Huelsbeck',
+    email: "huey@carpetelam.com",
+    company: "Carpe Telam, LLC"
+  }
 };

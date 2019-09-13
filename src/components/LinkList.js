@@ -2,10 +2,10 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
-
-import ListItemLink from "./ListItemLink";
+import { Link } from "gatsby-theme-material-ui";
 
 function LinkList({ items }) {
   return (
@@ -14,8 +14,10 @@ function LinkList({ items }) {
       {items.map(({ content, id, link, title }) => {
         return (
           <Fragment key={id}>
-            <ListItemLink
+            <ListItem
               alignItems="flex-start"
+              button
+              component={Link}
               to={link.replace("https://wordpress.carpetelam.com", "")}
             >
               <ListItemText>
@@ -28,7 +30,7 @@ function LinkList({ items }) {
                   dangerouslySetInnerHTML={{ __html: content }}
                 />
               </ListItemText>
-            </ListItemLink>
+            </ListItem>
             <Divider />
           </Fragment>
         );
